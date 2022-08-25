@@ -1,0 +1,22 @@
+{
+  "name": "momentum-app",
+  "version": "1.0.0",
+  "description": "Momentum app By Vic",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlake93/Momentum-app.git"
+  },
+  "author": "Vic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlake93/Momentum-app/issues"
+  },
+  "homepage": "https://github.com/vlake93/Momentum-app#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
