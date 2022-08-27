@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Playfair Display", cursive;
 }
 
 html {
@@ -11,6 +12,15 @@ html {
 }
 
 body {
-  background: url(../assets/afternoon-4.jpg) no-repeat fixed center;
+  height: 100vh;
+  // background: url(../assets/morning-4.jpg)no-repeat fixed center;
+  background-image: url(../assets/morning-4.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

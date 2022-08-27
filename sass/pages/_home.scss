@@ -1,4 +1,19 @@
-.time-container {
+.weather-link-container {
+  display: flex;
+  // justify-content: space-between;
+  // align-items: space-between;
+}
+
+.main-container {
+  animation: fadeIn 0.75s ease-in 1 forwards;
+  // transform: translateY(-35%);
+  height: 50vh;
+  width: 100vw;
+}
+
+.time-container,
+.date-container {
   display: flex;
   justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 1));
 }
