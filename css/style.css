@@ -78,8 +78,7 @@ h6 {
   border: none;
   outline: none;
   border-bottom: 3px solid #fff;
-  text-align: center;
-  margin-left: auto; }
+  text-align: center; }
 
 .focus-input {
   font-size: 3rem;
@@ -88,7 +87,8 @@ h6 {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #fff;
-  outline: none; }
+  outline: none;
+  text-align: center; }
 
 .name-container {
   display: flex;
@@ -103,7 +103,8 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22rem; }
+  gap: 22rem;
+  animation: fadeIn 0.75s ease-in 1 forwards; }
 
 .weather-search-container {
   margin-bottom: 5rem;
@@ -120,10 +121,11 @@ h6 {
 
 .search-logo {
   height: 2rem;
-  margin-right: 1.25rem;
   cursor: pointer; }
 
 .search-input {
+  text-align: center;
+  margin-left: 0.5rem;
   width: 20rem;
   height: 2rem;
   background-color: transparent;

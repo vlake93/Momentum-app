@@ -18,8 +18,8 @@ const focusInput = document.querySelector(".focus-input");
 const yourFocus = document.querySelector(".your-focus");
 
 nameInput.addEventListener("keydown", (e) => {
-  let nameStorage = localStorage.setItem("name", nameInput.value);
   if (e.key === "Enter") {
+    let nameStorage = localStorage.setItem("name", nameInput.value);
     console.log(localStorage.getItem("name"));
     if (localStorage.getItem("name") === null || undefined) {
       nameContainer.style.display = "flex";
@@ -47,7 +47,7 @@ focusInput.addEventListener("keydown", (e) => {
       focus.style.display = "none";
       focusInput.style.display = "none";
       yourFocus.style.display = "block";
-      yourFocus.textContent = `Your focus today is ${localStorage.getItem(
+      yourFocus.textContent = `Your focus today is to: ${localStorage.getItem(
         "focus"
       )}`;
     }
@@ -60,7 +60,7 @@ if (localStorage.getItem("focus") === null || undefined) {
   focus.style.display = "none";
   focusInput.style.display = "none";
   yourFocus.style.display = "block";
-  yourFocus.textContent = `Your focus today is: ${localStorage.getItem(
+  yourFocus.textContent = `Your focus today is to: ${localStorage.getItem(
     "focus"
   )}`;
 }
@@ -70,6 +70,7 @@ search.addEventListener("keydown", (e) => {
     console.log(search.value);
     searchLink.href = `https://www.google.com/search?q=${search.value}`;
     searchLink.click();
+    search.value = "";
   }
 });
 

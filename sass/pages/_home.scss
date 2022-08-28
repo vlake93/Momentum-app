@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   gap: 22rem;
-  // display: none;
+  animation: fadeIn 0.75s ease-in 1 forwards;
 }
 
 .weather-search-container {
@@ -34,11 +34,15 @@
 .search {
   &-logo {
     height: 2rem;
-    margin-right: 1.25rem;
+    // margin-right: 1.25rem;
     cursor: pointer;
+    // position: absolute;
+    // top: -0.5rem;
   }
 
   &-input {
+    text-align: center;
+    margin-left: 0.5rem;
     width: 20rem;
     height: 2rem;
     background-color: transparent;
