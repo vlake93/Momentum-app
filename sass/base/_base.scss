@@ -12,19 +12,10 @@ html {
 }
 
 body {
-  // background: url(../assets/morning-4.jpg)no-repeat fixed center;
+  height: 100vh;
   background-image: url(../assets/morning-4.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-}
-
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30rem;
 }

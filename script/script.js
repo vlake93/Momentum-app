@@ -36,9 +36,7 @@ const date = new Date();
 let year = date.getFullYear();
 let month = months[date.getMonth()];
 let day = date.getDate();
-let minutes = date.getMinutes();
 let hours = date.getHours();
-let seconds = date.getSeconds();
 
 let random = Math.floor(Math.random() * 4);
 if (hours < 12) {
@@ -54,7 +52,8 @@ if (hours < 12) {
 
 function refreshTime() {
   const timeDisplay = document.querySelector(".time");
-
+  let minutes = new Date().getMinutes();
+  let hours = new Date().getHours();
   timeDisplay.textContent = `${hours.toString().padStart(2, 0)}:${minutes
     .toString()
     .padStart(2, 0)}`;
