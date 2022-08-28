@@ -1,5 +1,9 @@
 "use strict";
 const bodyBG = document.querySelector("body");
+const nameContainer = document.querySelector(".name-container");
+const container = document.querySelector(".container");
+// const name = document.querySelector(".name");
+const nameInput = document.querySelector(".name-input");
 const dateEl = document.querySelector(".date");
 const greeting = document.querySelector(".greeting");
 const search = document.querySelector(".search-input");
@@ -12,6 +16,26 @@ const todoTask = document.querySelector(".todo-list-task");
 const focus = document.querySelector(".focus");
 const focusInput = document.querySelector(".focus-input");
 const yourFocus = document.querySelector(".your-focus");
+
+nameInput.addEventListener("keydown", (e) => {
+  let nameStorage = localStorage.setItem("name", nameInput.value);
+  if (e.key === "Enter") {
+    console.log(localStorage.getItem("name"));
+    if (localStorage.getItem("name") === null || undefined) {
+      nameContainer.style.display = "flex";
+    } else {
+      nameContainer.style.display = "none";
+      container.style.display = "flex";
+    }
+  }
+});
+
+if (localStorage.getItem("name") === null || undefined) {
+  nameContainer.style.display = "flex";
+} else {
+  nameContainer.style.display = "none";
+  container.style.display = "flex";
+}
 
 focusInput.addEventListener("keydown", (e) => {
   let focusStorage = localStorage.setItem("focus", focusInput.value);
@@ -73,13 +97,13 @@ let hours = date.getHours();
 let random = Math.floor(Math.random() * 4);
 if (hours < 12) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/morning-${random}.jpg)`;
-  greeting.textContent = `Good morning, `;
+  greeting.textContent = `Good morning, ${localStorage.getItem("name")} `;
 } else if (hours > 11 && hours < 18) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/afternoon-${random}.jpg)`;
-  greeting.textContent = `Good afternoon, `;
+  greeting.textContent = `Good afternoon, ${localStorage.getItem("name")}`;
 } else {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/night-${random}.jpg)`;
-  greeting.textContent = `Good evening, `;
+  greeting.textContent = `Good evening, ${localStorage.getItem("name")}`;
 }
 
 function refreshTime() {

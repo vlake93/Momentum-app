@@ -8,12 +8,12 @@
 
 .container {
   height: 100vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 22rem;
-  display: none;
+  // display: none;
 }
 
 .weather-search-container {
