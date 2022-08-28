@@ -1,0 +1,16 @@
+.add-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1.5rem;
+}
+
+.todo-button {
+  background-color: transparent;
+  color: $color-white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}

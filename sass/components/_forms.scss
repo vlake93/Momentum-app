@@ -1,0 +1,19 @@
+.name-input {
+  color: $color-white;
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid $color-white;
+  text-align: center;
+}
+
+.focus-input {
+  font-size: 3rem;
+  color: $color-white;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid $color-white;
+  outline: none;
+}

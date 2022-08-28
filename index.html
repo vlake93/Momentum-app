@@ -22,6 +22,10 @@
     <title>Momentum by Vic</title>
   </head>
   <body>
+    <div class="name-container">
+      <h1 class="name">Hello, what's your name?</h1>
+      <input class="name-input" type="text" />
+    </div>
     <div class="container">
       <div class="weather-search-container">
         <div class="search-container">
@@ -43,6 +47,11 @@
         <div class="greeting-container">
           <h3 class="greeting"></h3>
         </div>
+        <div class="focus-container">
+          <h3 class="focus">What's your main focus for today?</h3>
+          <input class="focus-input" type="text" />
+          <h3 class="your-focus"></h3>
+        </div>
       </div>
       <div class="quote-todo-container">
         <div class="setting">
@@ -53,22 +62,28 @@
           <div class="quotes-button">Quotes</div>
           <div class="quote">Actual list</div>
         </div>
-        <div class="todo-container">
-          <div class="todo-list">
-            <div class="todo-list-new">
-              <input
-                class="todo-list-task"
-                type="text"
-                placeholder="Add to To do list"
-              />
-              <img class="todo-list-add" src="assets/plus.png" alt="" />
+        <div class="todo-button-container">
+          <div class="todo-container hidden">
+            <div class="todo-list">
+              <h2 class="todo-list-header">Here is your todo, Vic,</h2>
+              <div class="todo-list-new">
+                <input
+                  class="todo-list-task"
+                  type="text"
+                  placeholder="Add to list"
+                />
+                <img class="add-button" src="assets/plus.png" alt="" />
+              </div>
+              <ul class="todo-list-lister">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
             </div>
-            <ul class="todo-list-lister">
-              <!-- <li>hey</li>
-              <li>hey</li> -->
-            </ul>
           </div>
-          <div class="todo-button">ToDo</div>
+          <button class="todo-button">Todo</button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ html {
 
 body {
   height: 100vh;
-  background-image: url(../assets/morning-4.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/morning-2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -29,7 +29,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: white; }
+  color: #fff; }
+
+.name {
+  font-size: 5rem;
+  text-align: center; }
 
 .time {
   font-size: 15rem; }
@@ -38,7 +42,59 @@ h6 {
   font-size: 2rem; }
 
 .greeting {
-  font-size: 5rem; }
+  font-size: 5rem;
+  margin-bottom: 2rem; }
+
+.focus {
+  font-size: 3rem; }
+
+.your-focus {
+  font-size: 3rem;
+  text-align: center;
+  display: none; }
+
+.todo-list-header {
+  font-size: 2rem; }
+
+.add-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1.5rem; }
+
+.todo-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer; }
+
+.name-input {
+  color: #fff;
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #fff;
+  text-align: center; }
+
+.focus-input {
+  font-size: 3rem;
+  color: #fff;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #fff;
+  outline: none; }
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(45rem); }
 
 .container {
   height: 100vh;
@@ -46,20 +102,21 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30rem; }
+  gap: 22rem;
+  display: none; }
 
 .weather-search-container {
+  margin-bottom: 5rem;
   padding: 2rem;
   display: flex;
   width: 100%;
-  justify-content: space-between;
   height: 10rem;
-  color: white; }
+  justify-content: space-between;
+  color: #fff; }
 
 .search-container {
   display: flex;
-  position: relative;
-  margin-bottom: 2px solid black; }
+  position: relative; }
 
 .search-logo {
   height: 2rem;
@@ -71,9 +128,9 @@ h6 {
   height: 2rem;
   background-color: transparent;
   border: none;
-  border-bottom: 2.5px solid white;
+  border-bottom: 2.5px solid #fff;
   outline: transparent;
-  color: white;
+  color: #fff;
   cursor: pointer;
   opacity: 0;
   transition: all 1s; }
@@ -85,7 +142,7 @@ h6 {
 
 .fade-container {
   animation: fadeIn 0.75s ease-in 1 forwards;
-  transform: translateY(-15%); }
+  transform: translateY(-25%); }
 
 .time-container,
 .date-container,
@@ -98,20 +155,20 @@ h6 {
   height: 10rem;
   width: 100%;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: flex-end; }
 
 .setting {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   font-size: 1.75rem;
-  color: white; }
+  color: #fff; }
   .setting-logo {
     height: 2rem;
     margin-right: 1rem;
     cursor: pointer; }
   .setting-text {
-    margin-bottom: 0.3rem;
     cursor: pointer; }
 
 .quotes-button {
@@ -140,16 +197,17 @@ h6 {
   .todo-list-new {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #fff;
     width: 100%;
     position: relative; }
   .todo-list-task {
     height: 2.5rem;
-    width: 20rem; }
-  .todo-list-add {
-    height: 2.5rem;
-    width: 2.5rem;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 1.5rem; }
+    width: 20rem;
+    margin-bottom: 1rem; }
+  .todo-list-lister {
+    color: #fff;
+    list-style: none;
+    font-size: 2rem; }
+
+.hidden {
+  display: none; }

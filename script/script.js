@@ -1,9 +1,45 @@
 "use strict";
-const dateEl = document.querySelector(".date");
 const bodyBG = document.querySelector("body");
+const dateEl = document.querySelector(".date");
 const greeting = document.querySelector(".greeting");
 const search = document.querySelector(".search-input");
 const searchLink = document.querySelector(".search-link");
+const todoContainer = document.querySelector(".todo-container");
+const todoBtn = document.querySelector(".todo-button");
+const addBtn = document.querySelector(".add-button");
+const todoList = document.querySelector(".todo-list-lister");
+const todoTask = document.querySelector(".todo-list-task");
+const focus = document.querySelector(".focus");
+const focusInput = document.querySelector(".focus-input");
+const yourFocus = document.querySelector(".your-focus");
+
+focusInput.addEventListener("keydown", (e) => {
+  let focusStorage = localStorage.setItem("focus", focusInput.value);
+  if (e.key === "Enter") {
+    console.log(localStorage.getItem("focus"));
+    if (localStorage.getItem("focus") === null || undefined) {
+      focus.style.display = "block";
+    } else {
+      focus.style.display = "none";
+      focusInput.style.display = "none";
+      yourFocus.style.display = "block";
+      yourFocus.textContent = `Your focus today is ${localStorage.getItem(
+        "focus"
+      )}`;
+    }
+  }
+});
+
+if (localStorage.getItem("focus") === null || undefined) {
+  focus.style.display = "block";
+} else {
+  focus.style.display = "none";
+  focusInput.style.display = "none";
+  yourFocus.style.display = "block";
+  yourFocus.textContent = `Your focus today is: ${localStorage.getItem(
+    "focus"
+  )}`;
+}
 
 search.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -12,10 +48,6 @@ search.addEventListener("keydown", (e) => {
     searchLink.click();
   }
 });
-
-// searchLink.addEventListener("click", () => {
-//   console.log("btn clicked");
-// });
 
 const months = [
   "January",
@@ -40,13 +72,13 @@ let hours = date.getHours();
 
 let random = Math.floor(Math.random() * 4);
 if (hours < 12) {
-  bodyBG.style.backgroundImage = `url(../assets/morning-${random}.jpg)`;
+  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/morning-${random}.jpg)`;
   greeting.textContent = `Good morning, `;
 } else if (hours > 11 && hours < 18) {
-  bodyBG.style.backgroundImage = `url(../assets/afternoon-${random}.jpg)`;
+  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/afternoon-${random}.jpg)`;
   greeting.textContent = `Good afternoon, `;
 } else {
-  bodyBG.style.backgroundImage = `url(../assets/night-${random}.jpg)`;
+  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/night-${random}.jpg)`;
   greeting.textContent = `Good evening, `;
 }
 
@@ -60,6 +92,42 @@ function refreshTime() {
   dateEl.textContent = `${month} / ${day.toString().padStart(2, 0)} / ${year}`;
 }
 setInterval(refreshTime, 100);
+
+todoBtn.addEventListener("click", () => {
+  todoContainer.classList.toggle("hidden");
+});
+
+function addList() {
+  if (todoTask.value === "") {
+    console.log("write something");
+  } else {
+    const newLi = document.createElement("div");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    newLi.append(input);
+    todoList.appendChild(newLi);
+    localStorage.setItem(todoTask.value, todoTask.value);
+    newLi.textContent = localStorage.getItem(todoTask.value);
+    todoTask.value = "";
+  }
+}
+
+addBtn.addEventListener("click", addList);
+todoTask.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addList();
+  }
+});
+
+// addBtn.addEventListener("click", () => {
+//   for (let i = 0; i < 6; i++) {
+//     const newLi = document.createElement("li");
+//     localStorage.setItem("todo" + [i], todoTask.value);
+//     newLi.textContent = localStorage.getItem("todo" + [i]);
+//     todoList.appendChild(newLi);
+//     todoTask.value = "";
+//   }
+// });
 
 // if (hours < 10) {
 //   timeDisplay.textContent = `0${hours}:${minutes}`;
