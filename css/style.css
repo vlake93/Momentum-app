@@ -27,7 +27,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  gap: 30rem; }
 
 h1,
 h2,
@@ -51,31 +52,39 @@ h6 {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  height: 20rem;
+  height: 10rem;
   color: white; }
 
 .search-container {
-  display: flex; }
+  display: flex;
+  position: relative;
+  margin-bottom: 2px solid black; }
 
-.search {
+.search-logo {
+  height: 2rem;
+  margin-right: 1.25rem;
+  cursor: pointer; }
+
+.search-input {
   width: 20rem;
   height: 2rem;
   background-color: transparent;
   border: none;
-  border-bottom: 2.5px solid white; }
-  .search-logo {
-    height: 2rem;
-    margin-right: 2rem; }
+  border-bottom: 2.5px solid white;
+  outline: transparent;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 1s; }
+  .search-input:hover, .search-input:active, .search-input:focus {
+    opacity: 1; }
 
-.gcse-search {
-  width: 10rem;
-  background-color: none; }
+.search-link {
+  display: none; }
 
 .fade-container {
   animation: fadeIn 0.75s ease-in 1 forwards;
-  height: 70rem;
-  width: 100%;
-  transform: translateY(15%); }
+  transform: translateY(-15%); }
 
 .time-container,
 .date-container,

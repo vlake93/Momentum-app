@@ -3,40 +3,50 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  height: 20rem;
+  height: 10rem;
   color: white;
-  // margin-bottom: 5rem;
-  // justify-content: space-between;
-  // align-items: space-between;
 }
 
 .search-container {
   display: flex;
+  position: relative;
+  margin-bottom: 2px solid black;
 }
 
 .search {
-  width: 20rem;
-  height: 2rem;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2.5px solid white;
-
   &-logo {
     height: 2rem;
-    margin-right: 2rem;
+    margin-right: 1.25rem;
+    cursor: pointer;
   }
-}
 
-.gcse-search {
-  width: 10rem;
-  background-color: none;
+  &-input {
+    width: 20rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2.5px solid white;
+    outline: transparent;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 1s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &-link {
+    display: none;
+  }
 }
 
 .fade-container {
   animation: fadeIn 0.75s ease-in 1 forwards;
-  height: 70rem;
-  width: 100%;
-  transform: translateY(15%);
+  transform: translateY(-15%);
 }
 
 .time-container,
@@ -77,4 +87,9 @@
 .quotes-button {
   width: 10rem;
   height: 4rem;
+}
+
+.todo-list {
+  &-task {
+  }
 }
