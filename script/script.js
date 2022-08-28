@@ -51,7 +51,7 @@ function refresh() {
   //   timeDisplay.textContent = `0${hours}:0${minutes}`;
   // }
 }
-setInterval(refresh, 50);
+setInterval(refresh, 100);
 
 // window.addEventListener("load", () => {
 //   for (let i = 0; i < 5; i++) {
