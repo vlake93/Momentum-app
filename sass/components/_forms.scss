@@ -17,4 +17,12 @@
   border-bottom: 3px solid $color-white;
   outline: none;
   text-align: center;
+  position: absolute;
+  top: 3rem;
+  transition: opacity 0.5s;
+  display: block;
+}
+
+.your-focus-checkbox {
+  opacity: 0;
 }

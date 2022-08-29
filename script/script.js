@@ -15,8 +15,10 @@ const todoList = document.querySelector(".todo-list-lister");
 const todoTask = document.querySelector(".todo-list-task");
 const focus = document.querySelector(".focus");
 const focusInput = document.querySelector(".focus-input");
+const focusHeader = document.querySelector(".focus-header");
 const yourFocus = document.querySelector(".your-focus");
 
+let nameStorage = "";
 nameInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     let nameStorage = localStorage.setItem("name", nameInput.value);
@@ -44,12 +46,11 @@ focusInput.addEventListener("keydown", (e) => {
     if (localStorage.getItem("focus") === null || undefined) {
       focus.style.display = "block";
     } else {
-      focus.style.display = "none";
-      focusInput.style.display = "none";
+      focus.style.opacity = "0";
+      focusInput.style.opacity = "0";
+      focusHeader.style.opacity = "1";
       yourFocus.style.display = "block";
-      yourFocus.textContent = `Your focus today is to: ${localStorage.getItem(
-        "focus"
-      )}`;
+      yourFocus.textContent = `${localStorage.getItem("focus")}`;
     }
   }
 });
@@ -57,12 +58,11 @@ focusInput.addEventListener("keydown", (e) => {
 if (localStorage.getItem("focus") === null || undefined) {
   focus.style.display = "block";
 } else {
-  focus.style.display = "none";
-  focusInput.style.display = "none";
+  focus.style.opacity = "0";
+  focusInput.style.opacity = "0";
+  focusHeader.style.opacity = "1";
   yourFocus.style.display = "block";
-  yourFocus.textContent = `Your focus today is to: ${localStorage.getItem(
-    "focus"
-  )}`;
+  yourFocus.textContent = `${localStorage.getItem("focus")}`;
 }
 
 search.addEventListener("keydown", (e) => {
@@ -74,6 +74,7 @@ search.addEventListener("keydown", (e) => {
   }
 });
 
+// DATE
 const months = [
   "January",
   "February",
@@ -89,6 +90,7 @@ const months = [
   "December",
 ];
 
+// BACKGROUND
 const date = new Date();
 let year = date.getFullYear();
 let month = months[date.getMonth()];
@@ -107,6 +109,7 @@ if (hours < 12) {
   greeting.textContent = `Good evening, ${localStorage.getItem("name")}`;
 }
 
+// TIME
 function refreshTime() {
   const timeDisplay = document.querySelector(".time");
   let minutes = new Date().getMinutes();
@@ -122,6 +125,7 @@ todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
 
+// TODO
 function addList() {
   if (todoTask.value === "") {
     console.log("write something");

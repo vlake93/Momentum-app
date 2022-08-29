@@ -27,12 +27,24 @@ h6 {
 
 .focus {
   font-size: 3rem;
+  position: absolute;
+  transition: opacity 0.5s;
+
+  &-header {
+    // margin-bottom: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s;
+    // position: absolute;
+  }
 }
 
 .your-focus {
   font-size: 3rem;
   text-align: center;
   display: none;
+  transition: opacity 1s;
 }
 
 .todo-list-header {
