@@ -44,10 +44,15 @@ h6 {
 .greeting {
   font-size: 5rem;
   margin-bottom: 2rem; }
+  .greeting-name {
+    font-size: 5rem; }
 
 .focus {
   font-size: 3rem;
   position: absolute;
+  left: -1.5rem;
+  width: 110%;
+  text-align: center;
   transition: opacity 0.5s; }
   .focus-header {
     font-size: 3rem;

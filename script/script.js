@@ -6,6 +6,7 @@ const container = document.querySelector(".container");
 const nameInput = document.querySelector(".name-input");
 const dateEl = document.querySelector(".date");
 const greeting = document.querySelector(".greeting");
+const greetingName = document.querySelector(".greeting-name");
 const search = document.querySelector(".search-input");
 const searchLink = document.querySelector(".search-link");
 const todoContainer = document.querySelector(".todo-container");
@@ -47,7 +48,10 @@ focusInput.addEventListener("keydown", (e) => {
       focus.style.display = "block";
     } else {
       focus.style.opacity = "0";
+      focus.style.display = "absolute";
+      // focus.style.height = "1px";
       focusInput.style.opacity = "0";
+      // focusInput.style.width = "1px";
       focusHeader.style.opacity = "1";
       yourFocus.style.display = "block";
       yourFocus.textContent = `${localStorage.getItem("focus")}`;
@@ -59,7 +63,10 @@ if (localStorage.getItem("focus") === null || undefined) {
   focus.style.display = "block";
 } else {
   focus.style.opacity = "0";
+  focus.style.display = "absolute";
+  // focus.style.height = "1px";
   focusInput.style.opacity = "0";
+  // focusInput.style.width = "1px";
   focusHeader.style.opacity = "1";
   yourFocus.style.display = "block";
   yourFocus.textContent = `${localStorage.getItem("focus")}`;
@@ -96,17 +103,20 @@ let year = date.getFullYear();
 let month = months[date.getMonth()];
 let day = date.getDate();
 let hours = date.getHours();
-
 let random = Math.floor(Math.random() * 4);
+
+greetingName.textContent = localStorage.getItem("name");
 if (hours < 12) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/morning-${random}.jpg)`;
-  greeting.textContent = `Good morning, ${localStorage.getItem("name")} `;
+  greetingName.textContent = `${localStorage.getItem("name")}`;
+  greeting.textContent = `Good morning, ${localStorage.getItem("name")}`;
 } else if (hours > 11 && hours < 18) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/afternoon-${random}.jpg)`;
   greeting.textContent = `Good afternoon, ${localStorage.getItem("name")}`;
 } else {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/night-${random}.jpg)`;
-  greeting.textContent = `Good evening, ${localStorage.getItem("name")}`;
+  greeting.innerHTML = `Good evening, ${localStorage.getItem("name")}`;
+  greetingName.textContent = `${localStorage.getItem("name")}`;
 }
 
 // TIME
@@ -118,8 +128,9 @@ function refreshTime() {
     .toString()
     .padStart(2, 0)}`;
   dateEl.textContent = `${month} / ${day.toString().padStart(2, 0)} / ${year}`;
+  // greetingName.textContent = `${name}`;
 }
-setInterval(refreshTime, 100);
+setInterval(refreshTime, 200);
 
 todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
