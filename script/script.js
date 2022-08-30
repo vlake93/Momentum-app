@@ -19,7 +19,7 @@ const focusInput = document.querySelector(".focus-input");
 const focusHeader = document.querySelector(".focus-header");
 const yourFocus = document.querySelector(".your-focus");
 const quote = document.querySelector(".quotes-text");
-const quoteButton = document.querySelector(".quotes-button");
+const quoteReset = document.querySelector(".quotes-button");
 
 // NAME AND FOCUS STORAGE
 let nameStorage = "";
@@ -143,6 +143,24 @@ setInterval(refreshTime, 200);
 // QUOTES
 const settingButton = document.querySelector(".setting-logo");
 const settingContainer = document.querySelector(".setting-container-hidden");
+const optionButtons = document.querySelectorAll(".setting-button");
+const optionTabs = document.querySelectorAll(".setting-options");
+
+// optionButtons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     settingContainer.style.width = "40rem";
+//   });
+// });
+
+for (let i = 0; i < optionButtons.length; i++) {
+  optionButtons[i].addEventListener("click", () => {
+    // settingContainer.style.width = "40rem";
+    settingContainer.classList.toggle("width-large");
+    // optionTabs[i].style.display = "flex";
+    optionTabs[i].classList.toggle("hidden");
+    optionButtons[i].classList.toggle("underline");
+  });
+}
 
 settingButton.addEventListener("click", () => {
   settingContainer.classList.toggle("hidden");
@@ -157,7 +175,7 @@ let quotesArr = [
 // push localstorage to array
 
 quote.textContent = quotesArr[0];
-quoteButton.addEventListener("click", () => {
+quoteReset.addEventListener("click", () => {
   quote.textContent = quotesArr[Math.floor(Math.random() * quotesArr.length)];
 });
 

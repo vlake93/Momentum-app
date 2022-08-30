@@ -16,12 +16,14 @@
 }
 
 .setting-button {
-  // height: 5rem;
+  margin-left: 1rem;
+  font-size: 2rem;
   text-align: left;
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: $color-white;
+  margin-right: 1rem;
 }
 
 .quotes-button {

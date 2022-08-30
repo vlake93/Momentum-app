@@ -91,11 +91,14 @@ h6 {
   cursor: pointer; }
 
 .setting-button {
+  margin-left: 1rem;
+  font-size: 2rem;
   text-align: left;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #fff; }
+  color: #fff;
+  margin-right: 1rem; }
 
 .quotes-button {
   color: #fff;
@@ -215,8 +218,8 @@ h6 {
 
 .setting-container-hidden {
   padding: 2rem;
-  height: 17rem;
-  width: 30rem;
+  height: 25rem;
+  width: 15rem;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 0;
@@ -234,28 +237,28 @@ h6 {
   .setting-button-menu {
     display: flex;
     flex-direction: column;
-    gap: 2rem; }
+    gap: 2rem;
+    border-right: 2px solid #fff; }
   .setting-options {
-    padding: 1rem;
-    background-color: blue; }
+    padding: 1rem; }
   .setting-logo {
     height: 2rem;
     margin-right: 1rem;
     cursor: pointer; }
   .setting-text {
     cursor: pointer; }
-  .setting-time {
+  .setting-general {
     display: flex;
-    width: 100%;
-    display: none; }
+    width: 100%; }
   .setting-link {
     display: flex;
-    width: 100%;
-    display: none; }
+    width: 100%; }
   .setting-weather {
     display: flex;
-    width: 100%;
-    display: none; }
+    width: 100%; }
+  .setting-time {
+    display: flex;
+    width: 100%; }
   .setting-quote {
     display: flex;
     flex-direction: column;
@@ -315,3 +318,9 @@ h6 {
 
 .hidden {
   display: none; }
+
+.underline {
+  text-decoration: underline; }
+
+.width-large {
+  width: 40rem; }
