@@ -26,3 +26,24 @@
 .your-focus-checkbox {
   opacity: 0;
 }
+
+.quotes-select {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: $color-white;
+  font-size: 2.5rem;
+  appearance: none;
+  pointer-events: none;
+}
+
+.quotes-option {
+  background-color: transparent;
+  font-size: 2.25rem;
+  // color: transparent;
+}
+
+.quotes-select option {
+  background-color: rgba($color: #000000, $alpha: 0.01);
+  color: $color-white;
+}

@@ -104,6 +104,13 @@
   align-items: flex-end;
 }
 
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex-direction: column;
+}
+
 .setting {
   display: flex;
   justify-content: center;
@@ -120,11 +127,6 @@
   &-text {
     cursor: pointer;
   }
-}
-
-.quotes-button {
-  width: 10rem;
-  height: 4rem;
 }
 
 .todo-container {

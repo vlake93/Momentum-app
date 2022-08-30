@@ -84,6 +84,16 @@ h6 {
   font-size: 2rem;
   cursor: pointer; }
 
+.quotes-button {
+  margin-left: 2rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+  .quotes-button-logo {
+    height: 2rem; }
+
 .name-input {
   color: #fff;
   font-size: 5rem;
@@ -109,6 +119,23 @@ h6 {
 
 .your-focus-checkbox {
   opacity: 0; }
+
+.quotes-select {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  appearance: none;
+  pointer-events: none; }
+
+.quotes-option {
+  background-color: transparent;
+  font-size: 2.25rem; }
+
+.quotes-select option {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: #fff; }
 
 .name-container {
   display: flex;
@@ -193,6 +220,11 @@ h6 {
   justify-content: space-between;
   align-items: flex-end; }
 
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .setting {
   display: flex;
   justify-content: center;
@@ -205,10 +237,6 @@ h6 {
     cursor: pointer; }
   .setting-text {
     cursor: pointer; }
-
-.quotes-button {
-  width: 10rem;
-  height: 4rem; }
 
 .todo-container {
   position: relative;

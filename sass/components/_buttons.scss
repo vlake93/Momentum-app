@@ -14,3 +14,16 @@
   font-size: 2rem;
   cursor: pointer;
 }
+
+.quotes-button {
+  margin-left: 2rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &-logo {
+    height: 2rem;
+  }
+}

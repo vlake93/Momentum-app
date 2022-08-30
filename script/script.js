@@ -107,7 +107,7 @@ let random = Math.floor(Math.random() * 4);
 
 greetingName.textContent = localStorage.getItem("name");
 if (hours < 12) {
-  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/morning-${random}.jpg)`;
+  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(../assets/morning-${random}.jpg)`;
   // greeting.textContent = `Good morning, ${localStorage.getItem("name")}`;
 } else if (hours > 11 && hours < 18) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/afternoon-${random}.jpg)`;
