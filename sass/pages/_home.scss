@@ -98,8 +98,8 @@
 .setting-container-hidden {
   padding: 2rem;
   height: 25rem;
-  // width: 40rem;
-  width: 15rem;
+  width: 40rem;
+  // width: 15rem;
   background-color: $hidden-container;
   position: absolute;
   left: 0;
@@ -142,6 +142,7 @@
 
   &-general {
     display: flex;
+    flex-direction: column;
     width: 100%;
     // display: none;
   }
@@ -247,4 +248,27 @@
 
 .width-large {
   width: 40rem;
+}
+
+.circle {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 0.05rem;
+  right: 0.2rem;
+  transition: all 1s;
+  // transform: translateX(-2rem);
+}
+
+.circle-off {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: lightgrey;
+  position: absolute;
+  top: 0.05rem;
+  transform: translateX(-2.2rem);
+  transition: all 1s;
 }

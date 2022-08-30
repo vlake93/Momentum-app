@@ -116,7 +116,7 @@ if (hours < 12) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/afternoon-${random}.jpg)`;
   // greeting.textContent = `Good afternoon, ${localStorage.getItem("name")}`;
 } else {
-  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../assets/night-${random}.jpg)`;
+  bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../assets/night-${random}.jpg)`;
   // greeting.innerHTML = `Good evening, ${localStorage.getItem("name")}`;
 }
 
@@ -154,13 +154,36 @@ const optionTabs = document.querySelectorAll(".setting-options");
 
 for (let i = 0; i < optionButtons.length; i++) {
   optionButtons[i].addEventListener("click", () => {
-    // settingContainer.style.width = "40rem";
+    // if (optionTabs[i].classList.contains("hidden")) {
+    //   optionTabs[i].classList.remove("hidden");
+    // } else {
+    //   optionTabs[i].classList.add("hidden");
+    // }
     settingContainer.classList.toggle("width-large");
     // optionTabs[i].style.display = "flex";
     optionTabs[i].classList.toggle("hidden");
     optionButtons[i].classList.toggle("underline");
+    // e.target.classList.toggle("underline");
   });
 }
+
+// For each button, register an event listener
+// optionButtons.forEach((button) => {
+//   button.addEventListener("click", function (e) {
+//     // On click, remove the MyClass on ALL buttons
+//     optionTabs.forEach(function (el) {
+//       el.classList.toggle("hidden");
+//     });
+
+//     // Add the class on clicked one
+//     // e.target.classList.add("hidden");
+
+//     // Now pass the data-href to your iframe
+//     let theHREFtoOpen = e.target.getAttribute("data-href");
+//     console.log(theHREFtoOpen);
+//     //document.querySelector("#your-iframe").src = theHREFtoOpen
+//   });
+// });
 
 settingButton.addEventListener("click", () => {
   settingContainer.classList.toggle("hidden");
@@ -185,6 +208,8 @@ todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
 
+let todoArr = [];
+
 function addList() {
   if (todoTask.value === "") {
     console.log("write something");
@@ -205,6 +230,14 @@ todoTask.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     addList();
   }
+});
+
+const circle = document.querySelector(".circle");
+const generalSearch = document.querySelector(".general-button-search");
+
+circle.addEventListener("click", () => {
+  circle.classList.toggle("circle-off");
+  generalSearch.classList.toggle("general-off");
 });
 
 // addBtn.addEventListener("click", () => {
