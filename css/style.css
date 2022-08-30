@@ -85,12 +85,14 @@ h6 {
   cursor: pointer; }
 
 .quotes-button {
-  margin-left: 2rem;
+  margin-right: 2rem;
   height: 2rem;
   width: 2rem;
   background-color: transparent;
   border: none;
-  cursor: pointer; }
+  cursor: pointer;
+  position: absolute;
+  left: 0; }
   .quotes-button-logo {
     height: 2rem; }
 
@@ -129,9 +131,11 @@ h6 {
   appearance: none;
   pointer-events: none; }
 
-.quotes-option {
+.quotes-text {
   background-color: transparent;
-  font-size: 2.25rem; }
+  font-size: 2.25rem;
+  width: 70rem;
+  text-align: center; }
 
 .quotes-select option {
   background-color: rgba(0, 0, 0, 0.01);
@@ -223,7 +227,11 @@ h6 {
 .quote-container {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: relative;
+  transition: all 1s; }
+  .quote-container:hover {
+    opacity: 1; }
 
 .setting {
   display: flex;

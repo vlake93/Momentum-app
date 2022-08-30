@@ -108,7 +108,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transition: all 1s;
   // flex-direction: column;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .setting {

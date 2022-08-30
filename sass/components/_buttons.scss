@@ -16,12 +16,15 @@
 }
 
 .quotes-button {
-  margin-left: 2rem;
+  margin-right: 2rem;
   height: 2rem;
   width: 2rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  position: absolute;
+  left: 0;
+  // opacity: 0;
 
   &-logo {
     height: 2rem;

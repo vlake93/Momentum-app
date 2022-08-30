@@ -18,7 +18,10 @@ const focus = document.querySelector(".focus");
 const focusInput = document.querySelector(".focus-input");
 const focusHeader = document.querySelector(".focus-header");
 const yourFocus = document.querySelector(".your-focus");
+const quote = document.querySelector(".quotes-text");
+const quoteButton = document.querySelector(".quotes-button");
 
+// NAME AND FOCUS STORAGE
 let nameStorage = "";
 nameInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -141,6 +144,16 @@ todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
 
+// QUOTES
+let quotesArr = [
+  `"Swiper, no swiping, Swiper, no swiping!" - Dora the explorer`,
+  `"Trying is the first step to failure" - Homer Simpson`,
+];
+
+quote.textContent = quotesArr[0];
+quoteButton.addEventListener("click", () => {
+  quote.textContent = quotesArr[Math.floor(Math.random() * quotesArr.length)];
+});
 // TODO
 function addList() {
   if (todoTask.value === "") {
