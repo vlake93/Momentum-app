@@ -47,6 +47,12 @@ h6 {
   .greeting-name {
     font-size: 5rem; }
 
+.quotes-text {
+  background-color: transparent;
+  font-size: 2.25rem;
+  width: 100%;
+  text-align: center; }
+
 .focus {
   font-size: 3rem;
   position: absolute;
@@ -84,15 +90,25 @@ h6 {
   font-size: 2rem;
   cursor: pointer; }
 
-.quotes-button {
-  margin-right: 2rem;
-  height: 2rem;
-  width: 2rem;
+.setting-button {
+  text-align: left;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  position: absolute;
-  left: 0; }
+  color: #fff; }
+
+.quotes-button {
+  color: #fff;
+  width: 100%;
+  margin-right: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center; }
   .quotes-button-logo {
     height: 2rem; }
 
@@ -121,25 +137,6 @@ h6 {
 
 .your-focus-checkbox {
   opacity: 0; }
-
-.quotes-select {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: #fff;
-  font-size: 2.5rem;
-  appearance: none;
-  pointer-events: none; }
-
-.quotes-text {
-  background-color: transparent;
-  font-size: 2.25rem;
-  width: 70rem;
-  text-align: center; }
-
-.quotes-select option {
-  background-color: rgba(0, 0, 0, 0.01);
-  color: #fff; }
 
 .name-container {
   display: flex;
@@ -216,6 +213,55 @@ h6 {
   display: flex;
   justify-content: center; }
 
+.setting-container-hidden {
+  padding: 2rem;
+  height: 17rem;
+  width: 30rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  display: flex;
+  gap: 2rem; }
+
+.setting {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1.75rem;
+  color: #fff;
+  position: relative; }
+  .setting-button-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; }
+  .setting-options {
+    padding: 1rem;
+    background-color: blue; }
+  .setting-logo {
+    height: 2rem;
+    margin-right: 1rem;
+    cursor: pointer; }
+  .setting-text {
+    cursor: pointer; }
+  .setting-time {
+    display: flex;
+    width: 100%;
+    display: none; }
+  .setting-link {
+    display: flex;
+    width: 100%;
+    display: none; }
+  .setting-weather {
+    display: flex;
+    width: 100%;
+    display: none; }
+  .setting-quote {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%; }
+
 .quote-todo-container {
   padding: 2rem;
   height: 10rem;
@@ -232,19 +278,6 @@ h6 {
   transition: all 1s; }
   .quote-container:hover {
     opacity: 1; }
-
-.setting {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-size: 1.75rem;
-  color: #fff; }
-  .setting-logo {
-    height: 2rem;
-    margin-right: 1rem;
-    cursor: pointer; }
-  .setting-text {
-    cursor: pointer; }
 
 .todo-container {
   position: relative;

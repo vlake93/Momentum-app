@@ -140,21 +140,33 @@ function refreshTime() {
 }
 setInterval(refreshTime, 200);
 
-todoBtn.addEventListener("click", () => {
-  todoContainer.classList.toggle("hidden");
+// QUOTES
+const settingButton = document.querySelector(".setting-logo");
+const settingContainer = document.querySelector(".setting-container-hidden");
+
+settingButton.addEventListener("click", () => {
+  settingContainer.classList.toggle("hidden");
 });
 
-// QUOTES
 let quotesArr = [
-  `"Swiper, no swiping, Swiper, no swiping!" - Dora the explorer`,
-  `"Trying is the first step to failure" - Homer Simpson`,
+  `"Swiper, no swiping, Swiper, no swiping!"`,
+  `"Trying is the first step to failure"`,
 ];
+
+// ADD NEW QUOTE TO localstorage
+// push localstorage to array
 
 quote.textContent = quotesArr[0];
 quoteButton.addEventListener("click", () => {
   quote.textContent = quotesArr[Math.floor(Math.random() * quotesArr.length)];
 });
+
 // TODO
+
+todoBtn.addEventListener("click", () => {
+  todoContainer.classList.toggle("hidden");
+});
+
 function addList() {
   if (todoTask.value === "") {
     console.log("write something");

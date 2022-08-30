@@ -27,25 +27,17 @@
   opacity: 0;
 }
 
-.quotes-select {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: $color-white;
-  font-size: 2.5rem;
-  appearance: none;
-  pointer-events: none;
-}
+// .quotes-select {
+//   background-color: transparent;
+//   outline: none;
+//   border: none;
+//   color: $color-white;
+//   font-size: 2.5rem;
+//   appearance: none;
+//   pointer-events: none;
+// }
 
-.quotes-text {
-  background-color: transparent;
-  font-size: 2.25rem;
-  width: 70rem;
-  text-align: center;
-  // color: transparent;
-}
-
-.quotes-select option {
-  background-color: rgba($color: #000000, $alpha: 0.01);
-  color: $color-white;
-}
+// .quotes-select option {
+//   background-color: rgba($color: #000000, $alpha: 0.01);
+//   color: $color-white;
+// }
