@@ -27,7 +27,7 @@
 }
 
 .general-button {
-  margin-left: 2rem;
+  // margin-left: 2rem;
   width: 4rem;
   height: 1.65rem;
   border-radius: 20rem;
@@ -44,7 +44,8 @@
   &-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 60%;
   }
 }
 
