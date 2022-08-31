@@ -40,6 +40,7 @@
       <div class="fade-container">
         <div class="time-container">
           <h1 class="time"></h1>
+          <!-- <span id="ampm">hey</span> -->
         </div>
         <div class="date-container">
           <h3 class="date"></h3>
@@ -59,14 +60,13 @@
       </div>
       <div class="quote-todo-container">
         <div class="setting">
-          <div class="setting-container-hidden hidden">
-            <div class="setting-button-menu">
+          <div class="setting-container-hidden">
+            <!-- <div class="setting-button-menu">
               <button class="setting-button underline">General</button>
-              <button class="setting-button">Link</button>
-              <button class="setting-button">Weather</button>
               <button class="setting-button">Time</button>
               <button class="setting-button">Quote</button>
-            </div>
+            </div> -->
+            <h4 class="setting-header">Display</h4>
             <div class="setting-options setting-general">
               <div class="general-button-container">
                 <p>Search</p>
@@ -87,15 +87,21 @@
                 </button>
               </div>
             </div>
-            <div class="setting-options setting-link hidden">hey</div>
-            <div class="setting-options setting-weather hidden">1</div>
-            <div class="setting-options setting-time hidden">2</div>
-            <div class="setting-options setting-quote hidden">
+            <h4 class="setting-header">Time</h4>
+            <div class="setting-options setting-time">
+              <button class="time-button general-button general-button-search">
+                <span class="time-24hr">24 12</span>
+                <div class="circle-large"></div>
+              </button>
+            </div>
+            <h4 class="setting-header">Quote</h4>
+            <div class="setting-options setting-quote">
               <button class="quotes-button">
                 <img class="quotes-button-logo" src="assets/reset.png" alt="" />
                 <p>Change quote</p>
               </button>
-              <input type="text" placeholder="Add quote" />
+              <input class="add-quote" type="text" placeholder="Add quote" />
+              <img class="add-button-quote" src="assets/plus.png" alt="" />
             </div>
           </div>
           <img class="setting-logo" src="../assets/gear-icon.png" alt="" />
@@ -104,17 +110,7 @@
         <div class="quote-container">
           <div class="quote">
             <h2 class="quotes-text"></h2>
-            <!-- <select class="quotes-select" name="" id=""> -->
-            <!-- <option class="quotes-option" value="2"></option>
-              <option class="quotes-option" value="3"></option>
-              <option class="quotes-option" value="4"></option>
-              <option class="quotes-option" value="5"></option>
-              <option class="quotes-option" value="6"></option> -->
-            <!-- </select> -->
           </div>
-          <!-- <button class="quotes-button">
-            <img class="quotes-button-logo" src="assets/plus-2.png" alt="" />
-          </button> -->
         </div>
         <div class="todo-button-container">
           <div class="todo-container hidden">

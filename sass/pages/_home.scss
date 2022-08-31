@@ -97,14 +97,14 @@
 
 .setting-container-hidden {
   padding: 2rem;
-  height: 25rem;
+  height: 45rem;
   width: 40rem;
-  // width: 15rem;
   background-color: $hidden-container;
   position: absolute;
   left: 0;
   bottom: 3rem;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -115,6 +115,11 @@
   font-size: 1.75rem;
   color: $color-white;
   position: relative;
+
+  &-header {
+    text-align: center;
+    border-bottom: 2px solid $color-white;
+  }
 
   &-button-menu {
     display: flex;
@@ -170,6 +175,7 @@
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    position: relative;
     // display: none;
   }
 }
@@ -246,10 +252,6 @@
   text-decoration: underline;
 }
 
-.width-large {
-  width: 40rem;
-}
-
 .circle {
   height: 1.5rem;
   width: 1.5rem;
@@ -259,7 +261,6 @@
   top: 0.05rem;
   right: 0.2rem;
   transition: all 1s;
-  // transform: translateX(-2rem);
 }
 
 .circle-off {
@@ -270,5 +271,27 @@
   position: absolute;
   top: 0.05rem;
   transform: translateX(-2.2rem);
+  transition: all 1s;
+}
+
+.circle-large {
+  height: 2.7rem;
+  width: 2.7rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  transition: all 1s;
+}
+
+.circle-off-large {
+  height: 2.7rem;
+  width: 2.7rem;
+  border-radius: 50%;
+  background-color: lightgrey;
+  position: absolute;
+  top: 0.2rem;
+  transform: translateX(-2.9rem);
   transition: all 1s;
 }

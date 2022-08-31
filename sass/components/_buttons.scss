@@ -5,6 +5,16 @@
   cursor: pointer;
   position: absolute;
   right: 1.5rem;
+
+  &-quote {
+    height: 2.3rem;
+    width: 2.3rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 3.9rem;
+  }
 }
 
 .todo-button {
@@ -15,16 +25,16 @@
   cursor: pointer;
 }
 
-.setting-button {
-  margin-left: 1rem;
-  font-size: 2rem;
-  text-align: left;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: $color-white;
-  margin-right: 1rem;
-}
+// .setting-button {
+//   margin-left: 1rem;
+//   font-size: 2rem;
+//   text-align: left;
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+//   color: $color-white;
+//   margin-right: 1rem;
+// }
 
 .general-button {
   // margin-left: 2rem;
@@ -47,6 +57,38 @@
     justify-content: space-between;
     width: 60%;
   }
+}
+
+.time-button {
+  width: 6rem;
+  height: 3rem;
+  // border-radius: 20rem;
+  position: relative;
+  border: none;
+  margin-bottom: 1rem;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s;
+  transform: translateY(0.8rem);
+}
+
+.time-24hr {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.75rem;
+  // z-index: 2;
+}
+
+.time-12hr {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
 }
 
 .general-off {
