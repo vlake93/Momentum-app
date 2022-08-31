@@ -39,10 +39,7 @@
 .search {
   &-logo {
     height: 2rem;
-    // margin-right: 1.25rem;
     cursor: pointer;
-    // position: absolute;
-    // top: -0.5rem;
   }
 
   &-input {
@@ -311,6 +308,7 @@
 }
 
 .list {
+  margin-left: 2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;

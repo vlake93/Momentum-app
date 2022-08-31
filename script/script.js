@@ -62,26 +62,26 @@ function focusing() {
     yourFocus.style.display = "block";
     // yourFocus.textContent = `${localStorage.getItem("focus")}`;
     const newLi = document.createElement("li");
-    const input = document.createElement("input");
-    const remove = document.createElement("h5");
-    remove.textContent = "DELETE";
+    // const input = document.createElement("input");
+    // const remove = document.createElement("h5");
+    // remove.textContent = "DELETE";
     newLi.classList.add("list");
-    remove.classList.add("remove");
-    input.type = "checkbox";
+    // remove.classList.add("remove");
+    // input.type = "checkbox";
     newLi.textContent = focusInput.value;
-    newLi.prepend(input);
-    newLi.append(remove);
+    // newLi.prepend(input);
+    // newLi.append(remove);
     yourFocus.appendChild(newLi);
 
-    input.addEventListener("click", () => {
-      if (input.checked) {
-        remove.style.opacity = "1";
-      } else {
-        remove.style.opacity = "0";
-      }
-    });
+    // newLi.addEventListener("click", () => {
+    //   if (input.checked) {
+    //     remove.style.opacity = "1";
+    //   } else {
+    //     remove.style.opacity = "0";
+    //   }
+    // });
 
-    remove.addEventListener("click", () => {
+    newLi.addEventListener("click", () => {
       newLi.remove();
       localStorage.removeItem("focus");
       focus.style.opacity = "1";
@@ -92,6 +92,18 @@ function focusing() {
       yourFocus.style.display = "none";
       focusInput.value = "";
     });
+
+    // remove.addEventListener("click", () => {
+    //   newLi.remove();
+    //   localStorage.removeItem("focus");
+    //   focus.style.opacity = "1";
+    //   focus.style.pointerEvents = "auto";
+    //   focusInput.style.opacity = "1";
+    //   focusInput.style.pointerEvents = "auto";
+    //   focusHeader.style.opacity = "0";
+    //   yourFocus.style.display = "none";
+    //   focusInput.value = "";
+    // });
   }
 }
 
@@ -131,7 +143,6 @@ let random = Math.floor(Math.random() * 4);
 const bodyBG = document.querySelector("body");
 const greetingName = document.querySelector(".greeting-name");
 
-greetingName.textContent = localStorage.getItem("name");
 if (hours < 12) {
   bodyBG.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(../assets/morning-${random}.jpg)`;
 } else if (hours > 11 && hours < 18) {
@@ -158,7 +169,6 @@ timeBtn.addEventListener("click", () => {
 
 // TIME
 function refreshTime() {
-  const ticker = document.querySelector("#ampm");
   const timeDisplay = document.querySelector(".time");
   let minutes = new Date().getMinutes();
   let hours = new Date().getHours();
@@ -187,6 +197,16 @@ function refreshTime() {
   }
 }
 setInterval(refreshTime, 200);
+
+// GREETING
+const rename = document.querySelector(".edit-name");
+const renameInput = document.querySelector(".edit-name-input");
+
+rename.addEventListener("click", () => {
+  localStorage.removeItem("name");
+  window.location.reload();
+  // renameInput.style.transform = "translateX(2rem)";
+});
 
 // SETTINGS
 const settingButton = document.querySelector(".setting-logo");
@@ -246,7 +266,6 @@ quoteReset.addEventListener("click", () => {
 todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
-
 let todoArr = [];
 
 function addList() {
@@ -260,18 +279,22 @@ function addList() {
     newLi.classList.add("list");
     remove.classList.add("remove");
     input.type = "checkbox";
+    todoArr.push(localStorage.setItem("todo", todoTask.value));
     // newLi.textContent = localStorage.getItem(todoTask.value);
-    newLi.textContent = todoTask.value;
+    for (let i = 0; i < todoArr.length; i++) {
+      newLi.textContent = todoTask.value;
+    }
     newLi.prepend(input);
     newLi.append(remove);
     todoList.appendChild(newLi);
-    // localStorage.setItem(todoTask.value, todoTask.value);
+    localStorage.setItem(todoTask.value, todoTask.value);
     todoTask.value = "";
 
     // INPUT CHECK
     input.addEventListener("click", () => {
       if (input.checked) {
         remove.style.opacity = "1";
+        newLi.style.textDecoration = "line-through";
       } else {
         remove.style.opacity = "0";
       }

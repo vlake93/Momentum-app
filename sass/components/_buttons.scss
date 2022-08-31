@@ -116,3 +116,23 @@
     height: 2rem;
   }
 }
+
+.edit-name {
+  height: 5rem;
+  width: 3rem;
+  transform: translateX(-70rem);
+  position: absolute;
+  right: 0;
+
+  &-input {
+    color: $color-white;
+    font-size: 5rem;
+    height: 6rem;
+    transform: translateX(-2rem);
+    width: 12rem;
+    background-color: #333;
+    border: none;
+    // position: absolute;
+    right: 0;
+  }
+}

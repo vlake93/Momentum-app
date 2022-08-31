@@ -24,7 +24,7 @@
   <body>
     <div class="name-container">
       <h1 class="name">Hello, what's your name?</h1>
-      <input class="name-input" type="text" />
+      <input class="name-input" type="text" maxlength="20" />
     </div>
     <div class="container">
       <div class="weather-search-container">
@@ -46,11 +46,13 @@
           <h3 class="date"></h3>
         </div>
         <div class="greeting-container">
-          <h3 class="greeting"><span class="greeting-name"></span></h3>
+          <h3 class="greeting"></h3>
+          <!-- <input class="edit-name-input" type="text" name="" id="" /> -->
+          <button class="edit-name">refresh mofo</button>
         </div>
         <div class="focus-container">
           <h3 class="focus">What's your main focus for today?</h3>
-          <input class="focus-input" type="text" />
+          <input class="focus-input" type="text" maxlength="20" />
           <h3 class="focus-header">Your main focus today:</h3>
           <div class="your-focus-container">
             <ul class="your-focus"></ul>
@@ -60,11 +62,6 @@
       <div class="quote-todo-container">
         <div class="setting">
           <div class="setting-container-hidden hidden">
-            <!-- <div class="setting-button-menu">
-              <button class="setting-button underline">General</button>
-              <button class="setting-button">Time</button>
-              <button class="setting-button">Quote</button>
-            </div> -->
             <h4 class="setting-header">Display</h4>
             <div class="setting-options setting-general">
               <div class="general-button-container">
@@ -105,7 +102,6 @@
             </div>
           </div>
           <img class="setting-logo" src="../assets/gear-icon.png" alt="" />
-          <!-- <p class="setting-text">settings</p> -->
         </div>
         <div class="quote-container general-button-target">
           <div class="quote">
