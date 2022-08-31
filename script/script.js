@@ -62,10 +62,7 @@ if (localStorage.getItem("focus") === null || undefined) {
   focus.style.display = "block";
 } else {
   focus.style.opacity = "0";
-  // focus.style.display = "absolute";
-  // focus.style.height = "1px";
   focusInput.style.opacity = "0";
-  // focusInput.style.width = "1px";
   focusHeader.style.opacity = "1";
   yourFocus.style.display = "block";
   yourFocus.textContent = `${localStorage.getItem("focus")}`;
@@ -144,10 +141,10 @@ function refreshTime() {
       .padStart(2, 0)}`;
   } else {
     hours > 12
-      ? (timeDisplay.textContent = `${(hours % 12)
+      ? (timeDisplay.textContent = `${(hours % 12 ? hours % 12 : 12)
           .toString()
           .padStart(2, 0)}:${minutes.toString().padStart(2, 0)}pm`)
-      : (timeDisplay.textContent = `${(hours % 12)
+      : (timeDisplay.textContent = `${(hours % 12 ? hours % 12 : 12)
           .toString()
           .padStart(2, 0)}:${minutes.toString().padStart(2, 0)}am`);
   }
@@ -167,36 +164,42 @@ setInterval(refreshTime, 200);
 // SETTINGS
 const settingButton = document.querySelector(".setting-logo");
 const settingContainer = document.querySelector(".setting-container-hidden");
-// const optionButtons = document.querySelectorAll(".setting-button");
-// const optionTabs = document.querySelectorAll(".setting-options");
-
-// for (let i = 0; i < optionButtons.length; i++) {
-//   optionButtons[i].addEventListener("click", () => {
-//     optionTabs[i].classList.toggle("hidden");
-//     optionButtons[i].classList.toggle("underline");
-//   });
-// }
-
 settingButton.addEventListener("click", () => {
   settingContainer.classList.toggle("hidden");
 });
 
-// QUOTES
+///////////////////////////////
+// QUOTES /////////////////////
+///////////////////////////////
+
 let quotesArr = [
   `Swiper, no swiping, Swiper, no swiping!`,
   `Trying is the first step to failure`,
+  `When nothing is going right, go left`,
 ];
 
-quote.textContent = `"${quotesArr[0]}"`;
+// quote.textContent = `"${quotesArr[0]}"`;
 localStorage.setItem("quote", quotesArr);
+let local = localStorage.getItem("quote");
+// let parsed = JSON.parse(local);
+// quote.textContent = `"${JSON.parse(localStorage.getItem("quote"))}"`;
+let local2 = local.split(" ");
+// quote.textContent = `"${localStorage.getItem("quote")}"`;
+quote.textContent = `"${quotesArr[0]}"`;
 
 const addBtnQuote = document.querySelector(".add-button-quote");
 const addQuote = document.querySelector(".add-quote");
 
 function addquote() {
-  quotesArr.push(addQuote.value);
-  addQuote.value = "";
-  quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
+  if (addQuote.value === "") {
+    console.log("write something");
+  } else {
+    localStorage.setItem("quote", addQuote.value);
+    quotesArr.push(localStorage.getItem("quote"));
+    // quotesArr.push(addQuote.value);
+    addQuote.value = "";
+    quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
+  }
 }
 
 addBtnQuote.addEventListener("click", addquote);
@@ -223,14 +226,34 @@ function addList() {
   if (todoTask.value === "") {
     console.log("write something");
   } else {
-    const newLi = document.createElement("div");
+    const newLi = document.createElement("li");
     const input = document.createElement("input");
+    const remove = document.createElement("h5");
+    remove.textContent = "DELETE";
+    newLi.classList.add("list");
+    remove.classList.add("remove");
     input.type = "checkbox";
-    newLi.append(input);
+    // newLi.textContent = localStorage.getItem(todoTask.value);
+    newLi.textContent = todoTask.value;
+    newLi.prepend(input);
+    newLi.append(remove);
     todoList.appendChild(newLi);
-    localStorage.setItem(todoTask.value, todoTask.value);
-    newLi.textContent = localStorage.getItem(todoTask.value);
+    // localStorage.setItem(todoTask.value, todoTask.value);
     todoTask.value = "";
+
+    // INPUT CHECK
+    input.addEventListener("click", () => {
+      if (input.checked) {
+        remove.style.opacity = "1";
+      } else {
+        remove.style.opacity = "0";
+      }
+    });
+
+    // REMOVE LIST
+    remove.addEventListener("click", () => {
+      newLi.remove();
+    });
   }
 }
 
@@ -241,10 +264,14 @@ todoTask.addEventListener("keydown", (e) => {
   }
 });
 
-const circle = document.querySelector(".circle");
-const generalSearch = document.querySelector(".general-button-search");
+const circle = document.querySelectorAll(".circle");
+const generalButton = document.querySelectorAll(".general-button");
+const generalButtonTarget = document.querySelectorAll(".general-button-target");
 
-circle.addEventListener("click", () => {
-  circle.classList.toggle("circle-off");
-  generalSearch.classList.toggle("general-off");
-});
+for (let i = 0; i < generalButton.length; i++) {
+  generalButton[i].addEventListener("click", () => {
+    circle[i].classList.toggle("circle-off");
+    generalButton[i].classList.toggle("general-off");
+    generalButtonTarget[i].classList.toggle("invisible");
+  });
+}

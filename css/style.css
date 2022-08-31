@@ -118,8 +118,10 @@ h6 {
     width: 60%; }
 
 .time-button {
+  margin-left: 2rem;
   width: 6rem;
   height: 3rem;
+  border-radius: 20rem;
   position: relative;
   border: none;
   margin-bottom: 1rem;
@@ -188,6 +190,9 @@ h6 {
 .your-focus-checkbox {
   opacity: 0; }
 
+.add-quote {
+  width: 100%; }
+
 .name-container {
   display: flex;
   flex-direction: column;
@@ -204,6 +209,9 @@ h6 {
   gap: 20rem;
   animation: fadeIn 0.75s ease-in 1 forwards; }
 
+.weather-container {
+  transition: all 1s; }
+
 .weather-search-container {
   margin-bottom: 5rem;
   padding: 2rem;
@@ -215,7 +223,8 @@ h6 {
 
 .search-container {
   display: flex;
-  position: relative; }
+  position: relative;
+  transition: all 1s; }
 
 .search-logo {
   height: 2rem;
@@ -291,7 +300,9 @@ h6 {
     gap: 2rem;
     border-right: 2px solid #fff; }
   .setting-options {
-    padding: 1rem; }
+    padding: 1rem;
+    justify-content: center;
+    align-items: center; }
   .setting-logo {
     height: 2rem;
     margin-right: 1rem;
@@ -372,6 +383,10 @@ h6 {
 .hidden {
   display: none; }
 
+.invisible {
+  opacity: 0;
+  pointer-events: none; }
+
 .underline {
   text-decoration: underline; }
 
@@ -414,3 +429,19 @@ h6 {
   top: 0.2rem;
   transform: translateX(-2.9rem);
   transition: all 1s; }
+
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: relative; }
+
+.remove {
+  font-size: 1.2rem;
+  color: #fff;
+  transform: translateY(0.3rem);
+  cursor: pointer;
+  opacity: 0;
+  transform: all 2s; }
