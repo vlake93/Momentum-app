@@ -167,15 +167,15 @@ setInterval(refreshTime, 200);
 // SETTINGS
 const settingButton = document.querySelector(".setting-logo");
 const settingContainer = document.querySelector(".setting-container-hidden");
-const optionButtons = document.querySelectorAll(".setting-button");
-const optionTabs = document.querySelectorAll(".setting-options");
+// const optionButtons = document.querySelectorAll(".setting-button");
+// const optionTabs = document.querySelectorAll(".setting-options");
 
-for (let i = 0; i < optionButtons.length; i++) {
-  optionButtons[i].addEventListener("click", () => {
-    optionTabs[i].classList.toggle("hidden");
-    optionButtons[i].classList.toggle("underline");
-  });
-}
+// for (let i = 0; i < optionButtons.length; i++) {
+//   optionButtons[i].addEventListener("click", () => {
+//     optionTabs[i].classList.toggle("hidden");
+//     optionButtons[i].classList.toggle("underline");
+//   });
+// }
 
 settingButton.addEventListener("click", () => {
   settingContainer.classList.toggle("hidden");
@@ -183,26 +183,33 @@ settingButton.addEventListener("click", () => {
 
 // QUOTES
 let quotesArr = [
-  `"Swiper, no swiping, Swiper, no swiping!"`,
-  `"Trying is the first step to failure"`,
+  `Swiper, no swiping, Swiper, no swiping!`,
+  `Trying is the first step to failure`,
 ];
 
-quote.textContent = quotesArr[0];
+quote.textContent = `"${quotesArr[0]}"`;
 localStorage.setItem("quote", quotesArr);
-// quote.textContent = localStorage.getItem("quote", quotesArr[0]);
 
 const addBtnQuote = document.querySelector(".add-button-quote");
 const addQuote = document.querySelector(".add-quote");
 
-addBtnQuote.addEventListener("click", addList);
+function addquote() {
+  quotesArr.push(addQuote.value);
+  addQuote.value = "";
+  quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
+}
+
+addBtnQuote.addEventListener("click", addquote);
 addQuote.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    addList();
+    addquote();
   }
 });
 
 quoteReset.addEventListener("click", () => {
-  quote.textContent = quotesArr[Math.floor(Math.random() * quotesArr.length)];
+  quote.textContent = `"${
+    quotesArr[Math.floor(Math.random() * quotesArr.length)]
+  }"`;
 });
 
 // TODO
