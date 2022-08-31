@@ -89,6 +89,9 @@
 }
 
 .your-focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   // width: 10rem;
   color: $color-white;
   font-size: 3.5rem;
@@ -139,9 +142,6 @@
     padding: 1rem;
     justify-content: center;
     align-items: center;
-    // width: auto;
-    // background-color: blue;
-    // display: none;
   }
 
   &-logo {

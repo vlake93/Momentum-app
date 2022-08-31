@@ -43,33 +43,56 @@ const focusHeader = document.querySelector(".focus-header");
 const yourFocus = document.querySelector(".your-focus");
 
 focusInput.addEventListener("keydown", (e) => {
-  localStorage.setItem("focus", focusInput.value);
   if (e.key === "Enter") {
+    localStorage.setItem("focus", focusInput.value);
     console.log(localStorage.getItem("focus"));
-    if (localStorage.getItem("focus") === null || undefined) {
-      focus.style.display = "block";
-    } else {
-      focus.style.opacity = "0";
-      focus.style.pointerEvents = "none";
-      focusInput.style.opacity = "0";
-      focusInput.style.pointerEvents = "none";
-      focusHeader.style.opacity = "1";
-      yourFocus.style.display = "block";
-      yourFocus.textContent = `${localStorage.getItem("focus")}`;
-    }
+    focusing();
   }
 });
 
-if (localStorage.getItem("focus") === null || undefined) {
-  focus.style.display = "block";
-} else {
-  focus.style.opacity = "0";
-  focus.style.pointerEvents = "none";
-  focusInput.style.opacity = "0";
-  focusInput.style.pointerEvents = "none";
-  focusHeader.style.opacity = "1";
-  yourFocus.style.display = "block";
-  yourFocus.textContent = `${localStorage.getItem("focus")}`;
+function focusing() {
+  if (localStorage.getItem("focus") === null || undefined) {
+    focus.style.display = "block";
+  } else {
+    focus.style.opacity = "0";
+    focus.style.pointerEvents = "none";
+    focusInput.style.opacity = "0";
+    focusInput.style.pointerEvents = "none";
+    focusHeader.style.opacity = "1";
+    yourFocus.style.display = "block";
+    // yourFocus.textContent = `${localStorage.getItem("focus")}`;
+    const newLi = document.createElement("li");
+    const input = document.createElement("input");
+    const remove = document.createElement("h5");
+    remove.textContent = "DELETE";
+    newLi.classList.add("list");
+    remove.classList.add("remove");
+    input.type = "checkbox";
+    newLi.textContent = focusInput.value;
+    newLi.prepend(input);
+    newLi.append(remove);
+    yourFocus.appendChild(newLi);
+
+    input.addEventListener("click", () => {
+      if (input.checked) {
+        remove.style.opacity = "1";
+      } else {
+        remove.style.opacity = "0";
+      }
+    });
+
+    remove.addEventListener("click", () => {
+      newLi.remove();
+      localStorage.removeItem("focus");
+      focus.style.opacity = "1";
+      focus.style.pointerEvents = "auto";
+      focusInput.style.opacity = "1";
+      focusInput.style.pointerEvents = "auto";
+      focusHeader.style.opacity = "0";
+      yourFocus.style.display = "none";
+      focusInput.value = "";
+    });
+  }
 }
 
 search.addEventListener("keydown", (e) => {

@@ -61,6 +61,7 @@ h6 {
   text-align: center;
   transition: opacity 0.5s; }
   .focus-header {
+    width: 45rem;
     font-size: 3rem;
     text-align: center;
     opacity: 0;
@@ -263,6 +264,9 @@ h6 {
   align-items: center; }
 
 .your-focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   font-size: 3.5rem;
   font-weight: 700; }
