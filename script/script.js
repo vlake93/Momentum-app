@@ -19,7 +19,7 @@ const nameInput = document.querySelector(".name-input");
 
 nameInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    let nameStorage = localStorage.setItem("name", nameInput.value);
+    localStorage.setItem("name", nameInput.value);
     console.log(localStorage.getItem("name"));
     if (localStorage.getItem("name") === null || undefined) {
       nameContainer.style.display = "flex";
@@ -43,14 +43,16 @@ const focusHeader = document.querySelector(".focus-header");
 const yourFocus = document.querySelector(".your-focus");
 
 focusInput.addEventListener("keydown", (e) => {
-  let focusStorage = localStorage.setItem("focus", focusInput.value);
+  localStorage.setItem("focus", focusInput.value);
   if (e.key === "Enter") {
     console.log(localStorage.getItem("focus"));
     if (localStorage.getItem("focus") === null || undefined) {
       focus.style.display = "block";
     } else {
       focus.style.opacity = "0";
+      focus.style.pointerEvents = "none";
       focusInput.style.opacity = "0";
+      focusInput.style.pointerEvents = "none";
       focusHeader.style.opacity = "1";
       yourFocus.style.display = "block";
       yourFocus.textContent = `${localStorage.getItem("focus")}`;
@@ -62,7 +64,9 @@ if (localStorage.getItem("focus") === null || undefined) {
   focus.style.display = "block";
 } else {
   focus.style.opacity = "0";
+  focus.style.pointerEvents = "none";
   focusInput.style.opacity = "0";
+  focusInput.style.pointerEvents = "none";
   focusHeader.style.opacity = "1";
   yourFocus.style.display = "block";
   yourFocus.textContent = `${localStorage.getItem("focus")}`;
