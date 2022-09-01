@@ -1,7 +1,6 @@
 "use strict";
 
 const dateEl = document.querySelector(".date");
-const greeting = document.querySelector(".greeting");
 const search = document.querySelector(".search-input");
 const searchLink = document.querySelector(".search-link");
 const todoContainer = document.querySelector(".todo-container");
@@ -60,51 +59,31 @@ function focusing() {
     focusInput.style.pointerEvents = "none";
     focusHeader.style.opacity = "1";
     yourFocus.style.display = "block";
-    // yourFocus.textContent = `${localStorage.getItem("focus")}`;
-    const newLi = document.createElement("li");
-    // const input = document.createElement("input");
-    // const remove = document.createElement("h5");
-    // remove.textContent = "DELETE";
-    newLi.classList.add("list");
-    // remove.classList.add("remove");
-    // input.type = "checkbox";
-    newLi.textContent = focusInput.value;
-    // newLi.prepend(input);
-    // newLi.append(remove);
-    yourFocus.appendChild(newLi);
-
-    // newLi.addEventListener("click", () => {
-    //   if (input.checked) {
-    //     remove.style.opacity = "1";
-    //   } else {
-    //     remove.style.opacity = "0";
-    //   }
-    // });
-
-    newLi.addEventListener("click", () => {
-      newLi.remove();
-      localStorage.removeItem("focus");
-      focus.style.opacity = "1";
-      focus.style.pointerEvents = "auto";
-      focusInput.style.opacity = "1";
-      focusInput.style.pointerEvents = "auto";
-      focusHeader.style.opacity = "0";
-      yourFocus.style.display = "none";
-      focusInput.value = "";
-    });
-
-    // remove.addEventListener("click", () => {
-    //   newLi.remove();
-    //   localStorage.removeItem("focus");
-    //   focus.style.opacity = "1";
-    //   focus.style.pointerEvents = "auto";
-    //   focusInput.style.opacity = "1";
-    //   focusInput.style.pointerEvents = "auto";
-    //   focusHeader.style.opacity = "0";
-    //   yourFocus.style.display = "none";
-    //   focusInput.value = "";
-    // });
+    yourFocus.textContent = focusInput.value;
   }
+}
+
+if (localStorage.getItem("focus") === null || undefined) {
+  focus.style.display = "block";
+} else {
+  focus.style.opacity = "0";
+  focus.style.pointerEvents = "none";
+  focusInput.style.opacity = "0";
+  focusInput.style.pointerEvents = "none";
+  focusHeader.style.opacity = "1";
+  yourFocus.style.display = "block";
+  yourFocus.textContent = localStorage.getItem("focus");
+
+  yourFocus.addEventListener("click", () => {
+    localStorage.removeItem("focus");
+    focus.style.opacity = "1";
+    focus.style.pointerEvents = "auto";
+    focusInput.style.opacity = "1";
+    focusInput.style.pointerEvents = "auto";
+    focusHeader.style.opacity = "0";
+    yourFocus.style.display = "none";
+    focusInput.value = "";
+  });
 }
 
 search.addEventListener("keydown", (e) => {
@@ -200,7 +179,23 @@ setInterval(refreshTime, 200);
 
 // GREETING
 const rename = document.querySelector(".edit-name");
-const renameInput = document.querySelector(".edit-name-input");
+const renameLogo = document.querySelector(".edit-name-logo");
+const greeting = document.querySelector(".greeting");
+
+greeting.addEventListener("mouseover", () => {
+  renameLogo.style.opacity = "1";
+});
+rename.addEventListener("mouseover", () => {
+  renameLogo.style.opacity = "1";
+});
+
+rename.addEventListener("mouseout", () => {
+  renameLogo.style.opacity = "0";
+});
+
+greeting.addEventListener("mouseout", () => {
+  renameLogo.style.opacity = "0";
+});
 
 rename.addEventListener("click", () => {
   localStorage.removeItem("name");
@@ -266,54 +261,57 @@ quoteReset.addEventListener("click", () => {
 todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
-let todoArr = [];
 
-function addList() {
-  if (todoTask.value === "") {
-    console.log("write something");
-  } else {
-    const newLi = document.createElement("li");
-    const input = document.createElement("input");
-    const remove = document.createElement("h5");
-    remove.textContent = "DELETE";
-    newLi.classList.add("list");
-    remove.classList.add("remove");
-    input.type = "checkbox";
-    todoArr.push(localStorage.setItem("todo", todoTask.value));
-    // newLi.textContent = localStorage.getItem(todoTask.value);
-    for (let i = 0; i < todoArr.length; i++) {
-      newLi.textContent = todoTask.value;
-    }
-    newLi.prepend(input);
-    newLi.append(remove);
-    todoList.appendChild(newLi);
-    localStorage.setItem(todoTask.value, todoTask.value);
-    todoTask.value = "";
+// let todoArr = [];
 
-    // INPUT CHECK
-    input.addEventListener("click", () => {
-      if (input.checked) {
-        remove.style.opacity = "1";
-        newLi.style.textDecoration = "line-through";
-      } else {
-        remove.style.opacity = "0";
-      }
-    });
+// function addList() {
+//   if (todoTask.value === "") {
+//     console.log("write something");
+//   } else {
+//     const newLi = document.createElement("li");
+//     const input = document.createElement("input");
+//     const remove = document.createElement("h5");
+//     remove.textContent = "DELETE";
+//     newLi.classList.add("list");
+//     remove.classList.add("remove");
+//     input.type = "checkbox";
+//     todoArr.push(localStorage.setItem("todo", todoTask.value));
+//     // newLi.textContent = localStorage.getItem(todoTask.value);
+//     for (let i = 0; i < todoArr.length; i++) {
+//       newLi.textContent = todoTask.value;
+//     }
+//     newLi.prepend(input);
+//     newLi.append(remove);
+//     todoList.appendChild(newLi);
+//     localStorage.setItem(todoTask.value, todoTask.value);
+//     todoTask.value = "";
 
-    // REMOVE LIST
-    remove.addEventListener("click", () => {
-      newLi.remove();
-    });
-  }
-}
+//     // INPUT CHECK
+//     input.addEventListener("click", () => {
+//       if (input.checked) {
+//         remove.style.opacity = "1";
+//         newLi.style.textDecoration = "line-through";
+//       } else {
+//         remove.style.opacity = "0";
+//       }
+//     });
 
-addBtn.addEventListener("click", addList);
-todoTask.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    addList();
-  }
-});
+//     // REMOVE LIST
+//     remove.addEventListener("click", () => {
+//       newLi.remove();
+//     });
+//   }
+//   return localStorage.getItem("todo");
+// }
 
+// addBtn.addEventListener("click", addList);
+// todoTask.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter") {
+//     addList();
+//   }
+// });
+
+// BUTTONS
 const circle = document.querySelectorAll(".circle");
 const generalButton = document.querySelectorAll(".general-button");
 const generalButtonTarget = document.querySelectorAll(".general-button-target");
@@ -325,3 +323,95 @@ for (let i = 0; i < generalButton.length; i++) {
     generalButtonTarget[i].classList.toggle("invisible");
   });
 }
+
+/////////////////////////////////
+//////////// TEST //////////////
+/////////////////////////////////
+// let todoArr = [];
+
+// function addList() {
+//   if (todoTask.value === "") {
+//     console.log("write something");
+//   }
+//   localStorage.setItem("todo", todoTask.value);
+//   // const newLi = document.createElement("li");
+//   // const input = document.createElement("input");
+//   // const remove = document.createElement("h5");
+//   // remove.textContent = "DELETE";
+//   // newLi.classList.add("list");
+//   // remove.classList.add("remove");
+//   // input.type = "checkbox";
+//   // todoArr.push(localStorage.setItem("todo", todoTask.value));
+//   // newLi.textContent = localStorage.getItem(todoTask.value);
+//   // for (let i = 0; i < todoArr.length; i++) {
+//   //   newLi.textContent = todoTask.value;
+//   // }
+//   // newLi.prepend(input);
+//   // newLi.append(remove);
+//   // todoList.appendChild(newLi);
+//   // localStorage.setItem(todoTask.value, todoTask.value);
+//   // todoTask.value = "";
+
+//   // INPUT CHECK
+//   // input.addEventListener("click", () => {
+//   //   if (input.checked) {
+//   //     remove.style.opacity = "1";
+//   //     newLi.style.textDecoration = "line-through";
+//   //   } else {
+//   //     remove.style.opacity = "0";
+//   //   }
+//   // });
+
+//   // // REMOVE LIST
+//   // remove.addEventListener("click", () => {
+//   //   newLi.remove();
+//   // });
+//   todoArr.push(localStorage.getItem("todo"));
+// }
+
+// let newQuote = addList();
+// todoArr.push(newQuote);
+// console.log(newQuote);
+// console.log(todoArr);
+
+// // addBtn.addEventListener("click", addList);
+// // todoTask.addEventListener("keydown", (e) => {
+// //   if (e.key === "Enter") {
+// //     addList();
+// //   }
+// // });
+
+// todoTask.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter") {
+//     addList();
+//     // let newQuote = addList();
+//     // todoArr.push(newQuote);
+//     // for (let i = 0; i < todoArr.length; i++) {
+//     //   todoArr.push(newQuote);
+//     // const newLi = document.createElement("li");
+//     // const input = document.createElement("input");
+//     // const remove = document.createElement("h5");
+//     // remove.textContent = "DELETE";
+//     // newLi.classList.add("list");
+//     // remove.classList.add("remove");
+//     // input.type = "checkbox";
+//     // newLi.textContent = todoArr[0];
+//     // newLi.prepend(input);
+//     // newLi.append(remove);
+//     // todoList.appendChild(newLi);
+//     // }
+//   }
+// });
+
+todoTask.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    let todo = JSON.parse(localStorage.getItem("todo-list"));
+    if (!todo) {
+      todo = [];
+    }
+    // let taskInfo = { name: todoTask.value, status: "pending" };
+    // todo.push(taskInfo);
+    todo.push(todoTask);
+    localStorage.setItem("todo-list", JSON.stringify(todo));
+  }
+});
