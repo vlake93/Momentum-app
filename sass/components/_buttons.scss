@@ -25,19 +25,7 @@
   cursor: pointer;
 }
 
-// .setting-button {
-//   margin-left: 1rem;
-//   font-size: 2rem;
-//   text-align: left;
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
-//   color: $color-white;
-//   margin-right: 1rem;
-// }
-
 .general-button {
-  // margin-left: 2rem;
   width: 4rem;
   height: 1.65rem;
   border-radius: 20rem;
@@ -81,7 +69,6 @@
   position: absolute;
   bottom: 0.5rem;
   left: 0.75rem;
-  // z-index: 2;
 }
 
 .time-12hr {
@@ -109,9 +96,6 @@
   align-items: center;
   justify-content: center;
 
-  // left: 0;
-  // opacity: 0;
-
   &-logo {
     height: 2rem;
   }
@@ -134,4 +118,7 @@
     opacity: 0;
     transition: all 1s;
   }
+}
+
+.remove-quote-button {
 }

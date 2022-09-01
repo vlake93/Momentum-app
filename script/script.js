@@ -222,6 +222,7 @@ const quote = document.querySelector(".quotes-text");
 const quoteReset = document.querySelector(".quotes-button");
 const addBtnQuote = document.querySelector(".add-button-quote");
 const addQuote = document.querySelector(".add-quote");
+const quoteDel = document.querySelector(".delete-quote");
 
 function showQuote() {
   let quotes = JSON.parse(localStorage.getItem("quote"));
@@ -283,6 +284,11 @@ quoteReset.addEventListener("click", () => {
   quote.textContent = `"${
     quotesArr[Math.floor(Math.random() * quotesArr.length)]
   }"`;
+});
+
+quoteDel.addEventListener("click", () => {
+  localStorage.removeItem("quote");
+  window.location.reload();
 });
 
 // TODO ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
