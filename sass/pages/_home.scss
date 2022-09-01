@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20rem;
+  gap: 21rem;
   animation: fadeIn 0.75s ease-in 1 forwards;
 }
 
@@ -309,10 +309,20 @@
 }
 
 .remove {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: $color-white;
   transform: translateY(0.3rem);
   cursor: pointer;
-  opacity: 0;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
   transform: all 2s;
+  transform: translateY(-0.05rem);
+}
+
+.new-todo {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
 }

@@ -1,13 +1,10 @@
-"use strict";
+// "use strict";
 
 const dateEl = document.querySelector(".date");
 const search = document.querySelector(".search-input");
 const searchLink = document.querySelector(".search-link");
 const todoContainer = document.querySelector(".todo-container");
 const todoBtn = document.querySelector(".todo-button");
-const addBtn = document.querySelector(".add-button");
-const todoList = document.querySelector(".todo-list-lister");
-const todoTask = document.querySelector(".todo-list-task");
 const quote = document.querySelector(".quotes-text");
 const quoteReset = document.querySelector(".quotes-button");
 
@@ -117,7 +114,7 @@ let year = date.getFullYear();
 let month = months[date.getMonth()];
 let day = date.getDate();
 let hours = date.getHours();
-let random = Math.floor(Math.random() * 4);
+let random = Math.floor(Math.random() * 5);
 
 const bodyBG = document.querySelector("body");
 const greetingName = document.querySelector(".greeting-name");
@@ -159,10 +156,10 @@ function refreshTime() {
     hours > 12
       ? (timeDisplay.textContent = `${(hours % 12 ? hours % 12 : 12)
           .toString()
-          .padStart(2, 0)}:${minutes.toString().padStart(2, 0)}pm`)
+          .padStart(2, 0)}:${minutes.toString().padStart(2, 0)} pm`)
       : (timeDisplay.textContent = `${(hours % 12 ? hours % 12 : 12)
           .toString()
-          .padStart(2, 0)}:${minutes.toString().padStart(2, 0)}am`);
+          .padStart(2, 0)}:${minutes.toString().padStart(2, 0)} am`);
   }
   dateEl.textContent = `${month} / ${day.toString().padStart(2, 0)} / ${year}`;
 
@@ -210,6 +207,19 @@ settingButton.addEventListener("click", () => {
   settingContainer.classList.toggle("hidden");
 });
 
+// BUTTONS
+const circle = document.querySelectorAll(".circle");
+const generalButton = document.querySelectorAll(".general-button");
+const generalButtonTarget = document.querySelectorAll(".general-button-target");
+
+for (let i = 0; i < generalButton.length; i++) {
+  generalButton[i].addEventListener("click", () => {
+    circle[i].classList.toggle("circle-off");
+    generalButton[i].classList.toggle("general-off");
+    generalButtonTarget[i].classList.toggle("invisible");
+  });
+}
+
 ///////////////////////////////
 // QUOTES /////////////////////
 ///////////////////////////////
@@ -221,11 +231,11 @@ let quotesArr = [
 ];
 
 // quote.textContent = `"${quotesArr[0]}"`;
-localStorage.setItem("quote", quotesArr);
-let local = localStorage.getItem("quote");
+// localStorage.setItem("quote", quotesArr);
+// let local = localStorage.getItem("quote");
 // let parsed = JSON.parse(local);
 // quote.textContent = `"${JSON.parse(localStorage.getItem("quote"))}"`;
-let local2 = local.split(" ");
+
 // quote.textContent = `"${localStorage.getItem("quote")}"`;
 quote.textContent = `"${quotesArr[0]}"`;
 
@@ -262,156 +272,117 @@ todoBtn.addEventListener("click", () => {
   todoContainer.classList.toggle("hidden");
 });
 
-// let todoArr = [];
-
-// function addList() {
-//   if (todoTask.value === "") {
-//     console.log("write something");
-//   } else {
-//     const newLi = document.createElement("li");
-//     const input = document.createElement("input");
-//     const remove = document.createElement("h5");
-//     remove.textContent = "DELETE";
-//     newLi.classList.add("list");
-//     remove.classList.add("remove");
-//     input.type = "checkbox";
-//     todoArr.push(localStorage.setItem("todo", todoTask.value));
-//     // newLi.textContent = localStorage.getItem(todoTask.value);
-//     for (let i = 0; i < todoArr.length; i++) {
-//       newLi.textContent = todoTask.value;
-//     }
-//     newLi.prepend(input);
-//     newLi.append(remove);
-//     todoList.appendChild(newLi);
-//     localStorage.setItem(todoTask.value, todoTask.value);
-//     todoTask.value = "";
-
-//     // INPUT CHECK
-//     input.addEventListener("click", () => {
-//       if (input.checked) {
-//         remove.style.opacity = "1";
-//         newLi.style.textDecoration = "line-through";
-//       } else {
-//         remove.style.opacity = "0";
-//       }
-//     });
-
-//     // REMOVE LIST
-//     remove.addEventListener("click", () => {
-//       newLi.remove();
-//     });
-//   }
-//   return localStorage.getItem("todo");
-// }
-
-// addBtn.addEventListener("click", addList);
-// todoTask.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     addList();
-//   }
-// });
-
-// BUTTONS
-const circle = document.querySelectorAll(".circle");
-const generalButton = document.querySelectorAll(".general-button");
-const generalButtonTarget = document.querySelectorAll(".general-button-target");
-
-for (let i = 0; i < generalButton.length; i++) {
-  generalButton[i].addEventListener("click", () => {
-    circle[i].classList.toggle("circle-off");
-    generalButton[i].classList.toggle("general-off");
-    generalButtonTarget[i].classList.toggle("invisible");
-  });
-}
-
-/////////////////////////////////
-//////////// TEST //////////////
-/////////////////////////////////
-// let todoArr = [];
-
-// function addList() {
-//   if (todoTask.value === "") {
-//     console.log("write something");
-//   }
-//   localStorage.setItem("todo", todoTask.value);
-//   // const newLi = document.createElement("li");
-//   // const input = document.createElement("input");
-//   // const remove = document.createElement("h5");
-//   // remove.textContent = "DELETE";
-//   // newLi.classList.add("list");
-//   // remove.classList.add("remove");
-//   // input.type = "checkbox";
-//   // todoArr.push(localStorage.setItem("todo", todoTask.value));
-//   // newLi.textContent = localStorage.getItem(todoTask.value);
-//   // for (let i = 0; i < todoArr.length; i++) {
-//   //   newLi.textContent = todoTask.value;
-//   // }
-//   // newLi.prepend(input);
-//   // newLi.append(remove);
-//   // todoList.appendChild(newLi);
-//   // localStorage.setItem(todoTask.value, todoTask.value);
-//   // todoTask.value = "";
-
-//   // INPUT CHECK
-//   // input.addEventListener("click", () => {
-//   //   if (input.checked) {
-//   //     remove.style.opacity = "1";
-//   //     newLi.style.textDecoration = "line-through";
-//   //   } else {
-//   //     remove.style.opacity = "0";
-//   //   }
-//   // });
-
-//   // // REMOVE LIST
-//   // remove.addEventListener("click", () => {
-//   //   newLi.remove();
-//   // });
-//   todoArr.push(localStorage.getItem("todo"));
-// }
-
-// let newQuote = addList();
-// todoArr.push(newQuote);
-// console.log(newQuote);
-// console.log(todoArr);
-
-// // addBtn.addEventListener("click", addList);
-// // todoTask.addEventListener("keydown", (e) => {
-// //   if (e.key === "Enter") {
-// //     addList();
-// //   }
-// // });
-
-// todoTask.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     addList();
-//     // let newQuote = addList();
-//     // todoArr.push(newQuote);
-//     // for (let i = 0; i < todoArr.length; i++) {
-//     //   todoArr.push(newQuote);
-//     // const newLi = document.createElement("li");
-//     // const input = document.createElement("input");
-//     // const remove = document.createElement("h5");
-//     // remove.textContent = "DELETE";
-//     // newLi.classList.add("list");
-//     // remove.classList.add("remove");
-//     // input.type = "checkbox";
-//     // newLi.textContent = todoArr[0];
-//     // newLi.prepend(input);
-//     // newLi.append(remove);
-//     // todoList.appendChild(newLi);
-//     // }
-//   }
-// });
+const todoList = document.querySelector(".todo-list-lister");
+const todoTask = document.querySelector(".todo-list-task");
+const addBtn = document.querySelector(".add-button");
 
 todoTask.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    let todo = JSON.parse(localStorage.getItem("todo-list"));
-    if (!todo) {
-      todo = [];
+    if (todoTask.value.trim() != 0) {
+      let todos = JSON.parse(localStorage.getItem("todo"));
+      if (todos === null) {
+        todoArr = [];
+      } else {
+        todoArr = todos;
+      }
+      todoArr.push(todoTask.value);
+      localStorage.setItem("todo", JSON.stringify(todoArr));
     }
-    // let taskInfo = { name: todoTask.value, status: "pending" };
-    // todo.push(taskInfo);
-    todo.push(todoTask);
-    localStorage.setItem("todo-list", JSON.stringify(todo));
+    todoTask.value = "";
+
+    showItem();
   }
 });
+
+addBtn.addEventListener("click", function () {
+  if (todoTask.value.trim() != 0) {
+    let todos = JSON.parse(localStorage.getItem("todo"));
+    if (todos === null) {
+      todoArr = [];
+    } else {
+      todoArr = todos;
+    }
+    todoArr.push(todoTask.value);
+    localStorage.setItem("todo", JSON.stringify(todoArr));
+  }
+  todoTask.value = "";
+  showItem();
+});
+
+function showItem() {
+  let todos = JSON.parse(localStorage.getItem("todo"));
+  if (todos === null) {
+    todoArr = [];
+  } else {
+    todoArr = todos;
+  }
+
+  let todoContent = "";
+  todoArr.forEach((data, index) => {
+    todoContent += `
+   <div class="new-todo">
+   <p class="new-todo-text">${data}</p>
+   <button class="remove" onClick="deleteItem(${index})">x</button>
+   </div>
+   `;
+  });
+  todoList.innerHTML = todoContent;
+}
+showItem();
+
+function deleteItem(index) {
+  let todos = JSON.parse(localStorage.getItem("todo"));
+  todoArr.splice(index, 1);
+  localStorage.setItem("todo", JSON.stringify(todoArr));
+  showItem();
+}
+
+// QUOTES FUNCTION
+
+// addBtnQuote.addEventListener("click", function () {
+//   if (addQuote.value.trim() != 0) {
+//     let quotes = JSON.parse(localStorage.getItem("quote"));
+//     if (quotes === null) {
+//       quotesArr = [
+//         `Swiper, no swiping, Swiper, no swiping!`,
+//         `Trying is the first step to failure`,
+//         `When nothing is going right, go left`,
+//       ];
+//     } else {
+//       quotesArr = quotes;
+//     }
+//     quotesArr.push(todoTask.value);
+//     localStorage.setItem("todo", JSON.stringify(todoArr));
+//   }
+//   todoTask.value = "";
+//   // showItem();
+//   quote.textContent = quotesArr[quotesArr.length - 1];
+// });
+
+// function showItem() {
+//   let quotes = JSON.parse(localStorage.getItem("todo"));
+//   if (quotes === null) {
+//     todoArr = [];
+//   } else {
+//     todoArr = quotes;
+//   }
+
+//   let todoContent = "";
+//   todoArr.forEach((data, index) => {
+//     todoContent += `
+//    <div class="new-todo">
+//    <p class="new-todo-text">${data}</p>
+//    <button class="remove" onClick="deleteItem(${index})">x</button>
+//    </div>
+//    `;
+//   });
+//   todoList.innerHTML = todoContent;
+// }
+// showItem();
+
+// function deleteItem(index) {
+//   let quotes = JSON.parse(localStorage.getItem("todo"));
+//   todoArr.splice(index, 1);
+//   localStorage.setItem("todo", JSON.stringify(todoArr));
+//   showItem();
+// }

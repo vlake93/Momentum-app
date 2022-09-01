@@ -36,7 +36,8 @@ h6 {
   text-align: center; }
 
 .time {
-  font-size: 15rem; }
+  font-size: 15rem;
+  text-align: center; }
 
 .date {
   font-size: 2rem; }
@@ -76,10 +77,17 @@ h6 {
   align-items: center;
   color: #fff;
   font-size: 3.5rem;
-  font-weight: 700; }
+  font-weight: 700;
+  cursor: pointer; }
 
 .todo-list-header {
   font-size: 2rem; }
+
+.new-todo-text {
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  align-self: center; }
 
 .add-button {
   height: 2.5rem;
@@ -228,7 +236,7 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20rem;
+  gap: 21rem;
   animation: fadeIn 0.75s ease-in 1 forwards; }
 
 .weather-container {
@@ -459,9 +467,18 @@ h6 {
   cursor: pointer; }
 
 .remove {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: #fff;
   transform: translateY(0.3rem);
   cursor: pointer;
-  opacity: 0;
-  transform: all 2s; }
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  transform: all 2s;
+  transform: translateY(-0.05rem); }
+
+.new-todo {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; }
