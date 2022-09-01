@@ -12,12 +12,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 21rem;
+  gap: 20rem;
   animation: fadeIn 0.75s ease-in 1 forwards;
-}
-
-.weather-container {
-  transition: all 1s;
 }
 
 .weather-search-container {
@@ -28,6 +24,18 @@
   height: 10rem;
   justify-content: space-between;
   color: $color-white;
+}
+
+.weather-container {
+  transition: all 1s;
+}
+
+.weather {
+  font-size: 2rem;
+}
+
+.weather-logo {
+  height: 5rem;
 }
 
 .search-container {

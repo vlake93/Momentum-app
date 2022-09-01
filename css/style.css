@@ -31,6 +31,9 @@ h5,
 h6 {
   color: #fff; }
 
+.weather-header {
+  font-size: 2rem; }
+
 .name {
   font-size: 5rem;
   text-align: center; }
@@ -236,11 +239,8 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 21rem;
+  gap: 20rem;
   animation: fadeIn 0.75s ease-in 1 forwards; }
-
-.weather-container {
-  transition: all 1s; }
 
 .weather-search-container {
   margin-bottom: 5rem;
@@ -250,6 +250,15 @@ h6 {
   height: 10rem;
   justify-content: space-between;
   color: #fff; }
+
+.weather-container {
+  transition: all 1s; }
+
+.weather {
+  font-size: 2rem; }
+
+.weather-logo {
+  height: 5rem; }
 
 .search-container {
   display: flex;
