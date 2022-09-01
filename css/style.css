@@ -61,7 +61,7 @@ h6 {
   text-align: center;
   transition: opacity 0.5s; }
   .focus-header {
-    width: 45rem;
+    width: 100%;
     font-size: 3rem;
     text-align: center;
     opacity: 0;
@@ -71,7 +71,12 @@ h6 {
   font-size: 3rem;
   text-align: center;
   display: none;
-  transition: opacity 1s; }
+  transition: opacity 1s;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 700; }
 
 .todo-list-header {
   font-size: 2rem; }
@@ -278,15 +283,6 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center; }
-
-.your-focus {
-  margin-right: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 3.5rem;
-  font-weight: 700; }
 
 .time-container,
 .date-container,
