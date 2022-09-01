@@ -3,10 +3,6 @@
 const dateEl = document.querySelector(".date");
 const search = document.querySelector(".search-input");
 const searchLink = document.querySelector(".search-link");
-const todoContainer = document.querySelector(".todo-container");
-const todoBtn = document.querySelector(".todo-button");
-const quote = document.querySelector(".quotes-text");
-const quoteReset = document.querySelector(".quotes-button");
 
 // NAME AND FOCUS STORAGE
 const nameContainer = document.querySelector(".name-container");
@@ -201,6 +197,7 @@ rename.addEventListener("click", () => {
 });
 
 // SETTINGS
+
 const settingButton = document.querySelector(".setting-logo");
 const settingContainer = document.querySelector(".setting-container-hidden");
 settingButton.addEventListener("click", () => {
@@ -223,41 +220,64 @@ for (let i = 0; i < generalButton.length; i++) {
 ///////////////////////////////
 // QUOTES /////////////////////
 ///////////////////////////////
-
-let quotesArr = [
-  `Swiper, no swiping, Swiper, no swiping!`,
-  `Trying is the first step to failure`,
-  `When nothing is going right, go left`,
-];
-
-// quote.textContent = `"${quotesArr[0]}"`;
-// localStorage.setItem("quote", quotesArr);
-// let local = localStorage.getItem("quote");
-// let parsed = JSON.parse(local);
-// quote.textContent = `"${JSON.parse(localStorage.getItem("quote"))}"`;
-
-// quote.textContent = `"${localStorage.getItem("quote")}"`;
-quote.textContent = `"${quotesArr[0]}"`;
-
+const quote = document.querySelector(".quotes-text");
+const quoteReset = document.querySelector(".quotes-button");
 const addBtnQuote = document.querySelector(".add-button-quote");
 const addQuote = document.querySelector(".add-quote");
 
-function addquote() {
-  if (addQuote.value === "") {
-    console.log("write something");
+function showQuote() {
+  let quotes = JSON.parse(localStorage.getItem("quote"));
+  if (quotes === null) {
+    quotesArr = [
+      `Swiper, no swiping, Swiper, no swiping!`,
+      `Trying is the first step to failure`,
+      `When nothing is going right, go left`,
+    ];
   } else {
-    localStorage.setItem("quote", addQuote.value);
-    quotesArr.push(localStorage.getItem("quote"));
-    // quotesArr.push(addQuote.value);
-    addQuote.value = "";
-    quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
+    quotesArr = quotes;
   }
+  quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
 }
+showQuote();
 
-addBtnQuote.addEventListener("click", addquote);
+addBtnQuote.addEventListener("click", function () {
+  if (addQuote.value.trim() != 0) {
+    let quotes = JSON.parse(localStorage.getItem("quote"));
+    if (quotes === null) {
+      quotesArr = [
+        `Swiper, no swiping, Swiper, no swiping!`,
+        `Trying is the first step to failure`,
+        `When nothing is going right, go left`,
+      ];
+    } else {
+      quotesArr = quotes;
+    }
+    quotesArr.push(addQuote.value);
+    localStorage.setItem("quote", JSON.stringify(quotesArr));
+  }
+  addQuote.value = "";
+  quote.textContent = quotesArr[quotesArr.length - 1];
+  showQuote();
+});
+
 addQuote.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    addquote();
+    if (addQuote.value.trim() != 0) {
+      let quotes = JSON.parse(localStorage.getItem("quote"));
+      if (quotes === null) {
+        quotesArr = [
+          `Swiper, no swiping, Swiper, no swiping!`,
+          `Trying is the first step to failure`,
+          `When nothing is going right, go left`,
+        ];
+      } else {
+        quotesArr = quotes;
+      }
+      quotesArr.push(addQuote.value);
+      localStorage.setItem("quote", JSON.stringify(quotesArr));
+    }
+    addQuote.value = "";
+    quote.textContent = `"${quotesArr[quotesArr.length - 1]}"`;
   }
 });
 
@@ -268,13 +288,14 @@ quoteReset.addEventListener("click", () => {
 });
 
 // TODO
-todoBtn.addEventListener("click", () => {
-  todoContainer.classList.toggle("hidden");
-});
-
+const todoContainer = document.querySelector(".todo-container");
+const todoBtn = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list-lister");
 const todoTask = document.querySelector(".todo-list-task");
 const addBtn = document.querySelector(".add-button");
+todoBtn.addEventListener("click", () => {
+  todoContainer.classList.toggle("hidden");
+});
 
 todoTask.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -336,53 +357,3 @@ function deleteItem(index) {
   localStorage.setItem("todo", JSON.stringify(todoArr));
   showItem();
 }
-
-// QUOTES FUNCTION
-
-// addBtnQuote.addEventListener("click", function () {
-//   if (addQuote.value.trim() != 0) {
-//     let quotes = JSON.parse(localStorage.getItem("quote"));
-//     if (quotes === null) {
-//       quotesArr = [
-//         `Swiper, no swiping, Swiper, no swiping!`,
-//         `Trying is the first step to failure`,
-//         `When nothing is going right, go left`,
-//       ];
-//     } else {
-//       quotesArr = quotes;
-//     }
-//     quotesArr.push(todoTask.value);
-//     localStorage.setItem("todo", JSON.stringify(todoArr));
-//   }
-//   todoTask.value = "";
-//   // showItem();
-//   quote.textContent = quotesArr[quotesArr.length - 1];
-// });
-
-// function showItem() {
-//   let quotes = JSON.parse(localStorage.getItem("todo"));
-//   if (quotes === null) {
-//     todoArr = [];
-//   } else {
-//     todoArr = quotes;
-//   }
-
-//   let todoContent = "";
-//   todoArr.forEach((data, index) => {
-//     todoContent += `
-//    <div class="new-todo">
-//    <p class="new-todo-text">${data}</p>
-//    <button class="remove" onClick="deleteItem(${index})">x</button>
-//    </div>
-//    `;
-//   });
-//   todoList.innerHTML = todoContent;
-// }
-// showItem();
-
-// function deleteItem(index) {
-//   let quotes = JSON.parse(localStorage.getItem("todo"));
-//   todoArr.splice(index, 1);
-//   localStorage.setItem("todo", JSON.stringify(todoArr));
-//   showItem();
-// }
