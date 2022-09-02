@@ -1,3 +1,35 @@
+.search {
+  &-logo {
+    height: 2rem;
+    cursor: pointer;
+  }
+
+  &-input {
+    text-align: center;
+    margin-left: 0.5rem;
+    width: 20rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2.5px solid $color-white;
+    outline: transparent;
+    color: $color-white;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 1s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &-link {
+    display: none;
+  }
+}
+
 .name-input {
   color: $color-white;
   font-size: 5rem;
